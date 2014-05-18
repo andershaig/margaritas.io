@@ -1,0 +1,26 @@
+<!-- Main component for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <h1>Delicious Margaritas</h1>
+  <p>Just have one single call to action here, not both. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque deleniti error vero repellendus praesentium nostrum corporis quasi culpa, explicabo. Id et illum vel repellat repellendus.</p>
+  <p>
+    <a class="btn btn-lg btn-primary" href="" role="button">Browse Margaritas &raquo;</a>
+  </p>
+</div>
+
+<!-- Recipe Grid -->
+<div class="row">
+  <div class="col-sm-6 col-md-4" ng-repeat="recipe in recipes">
+    <div class="thumbnail">
+      <img src="http://placekitten.com/300/200" alt="...">
+
+      <div class="caption">
+        <h3>{{recipe.title}}</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo dolores accusamus, corporis, itaque culpa sequi vitae quae, quas doloribus recusandae fuga. Est animi, optio amet!</p>
+        <p>
+          <a href="#/single" class="btn btn-primary" role="button">Button</a>
+          <a href="#/single" class="btn btn-default" role="button">Button</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
