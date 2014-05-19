@@ -6,8 +6,26 @@
   <div class="panel-body">
     <div class="user-avatar user-avatar-large" style="background-color:rgba(0,0,0,0.25)"></div>
 
-    <p>Username: {{currentUser.get('username')}}</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem suscipit aut similique eius possimus accusantium aliquid delectus saepe accusamus, molestias, veritatis facilis. Omnis molestias porro assumenda est dolores in tenetur rerum illo, hic esse dolore iusto architecto quasi quibusdam recusandae, maxime a necessitatibus cum ea quos soluta, veniam ratione distinctio!</p>
+    <form role="form">
+      <div class="form-group">
+        <label for="username">Username ({{currentUser.get('username')}})</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter username">
+      </div>
+
+      <div class="form-group">
+        <label for="passwd">Password</label>
+        <input type="password" class="form-control" id="passwd" placeholder="Password">
+      </div>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Check me out
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
   </div>
 </div>
