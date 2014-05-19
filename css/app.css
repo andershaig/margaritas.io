@@ -1,7 +1,10 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 90px;
