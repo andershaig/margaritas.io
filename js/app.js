@@ -20,11 +20,6 @@ config(['$routeProvider', function ($routeProvider) {
     controller: 'aboutCtrl'
   });
 
-  $routeProvider.when('/login', {
-    templateUrl: 'partials/login.html',
-    controller: 'loginCtrl'
-  });
-
   $routeProvider.when('/account', {
     templateUrl: 'partials/account.html',
     controller: 'accountCtrl'

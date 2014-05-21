@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h3 class="modal-title">Sign In</h3>
+  <h3 class="modal-title">Register</h3>
 </div>
 
 <div class="modal-body">
@@ -12,6 +12,11 @@
     </div>
 
     <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" ng-model="user.username" class="form-control" id="username" placeholder="Username">
+    </div>
+
+    <div class="form-group">
       <label for="passwd">Password</label>
       <input type="password" ng-model="user.password" class="form-control" id="passwd" placeholder="Password">
     </div>
@@ -21,6 +26,6 @@
 </div>
 
 <div class="modal-footer">
-  <button class="btn btn-primary" ng-click="ok()">Sign In</button>
+  <button class="btn btn-primary" ng-click="ok()">Register</button>
   <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>

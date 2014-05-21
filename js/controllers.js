@@ -9,9 +9,9 @@ angular.module('marg.controllers', [])
 
     $scope.items = ['item1', 'item2', 'item3'];
 
-    var modalInstance = $modal.open({
-      templateUrl: 'partials/login.html',
-      controller: ModalInstanceCtrl,
+    var registerModal = $modal.open({
+      templateUrl: 'partials/register.html',
+      controller: RegisterModalCtrl,
       resolve: {
         items: function () {
           return $scope.items;
@@ -19,16 +19,54 @@ angular.module('marg.controllers', [])
       }
     });
 
-    modalInstance.result.then(function (selectedItem) {
+    registerModal.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
       console.info('Modal dismissed at: ' + new Date());
     });
   };
 
-  var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+  var RegisterModalCtrl = function ($scope, $modalInstance, items) {
     $scope.items = items;
-    
+
+    $scope.selected = {
+      item: $scope.items[0]
+    };
+
+    $scope.ok = function () {
+      $modalInstance.close($scope.selected.item);
+    };
+
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
+  };
+
+  $scope.login = function () {
+    console.log('> Modal Opening');
+
+    $scope.items = ['item1', 'item2', 'item3'];
+
+    var loginModal = $modal.open({
+      templateUrl: 'partials/login.html',
+      controller: LoginModalCtrl,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+    loginModal.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      console.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+  var LoginModalCtrl = function ($scope, $modalInstance, items) {
+    $scope.items = items;
+
     $scope.selected = {
       item: $scope.items[0]
     };
