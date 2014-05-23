@@ -85,5 +85,8 @@ factory('Margarita', function ($q) {
     }
   });
 
-return Margarita;
+  return Margarita;
+}).
+factory('Auth', function (MargUser) {
+  // TODO: A service for handling sign in / registration?
 });
