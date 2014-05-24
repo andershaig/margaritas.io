@@ -87,6 +87,6 @@ factory('Margarita', function ($q) {
 
   return Margarita;
 }).
-factory('Auth', function (MargUser) {
-  // TODO: A service for handling sign in / registration?
-});
+factory('Placeholder', ['$scope', function ($scope) {
+  // Placeholder
+}]);

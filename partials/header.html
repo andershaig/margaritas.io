@@ -32,16 +32,26 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        <!--
         <li ng-hide="currentUser">
           <a ng-click="register()">Register</a>
         </li>
 
         <li ng-hide="currentUser">
-          <a  ng-click="login()">Sign In</a>
+          <a ng-click="login()">Sign In</a>
+        </li>
+        -->
+
+        <li ng-hide="currentUser">
+          <a href="/#/login">Sign In</a>
         </li>
 
         <li ng-show="currentUser">
           <a href="#/account"><span class="glyphicon glyphicon-user"></span> {{currentUser.get('username')}}</a>
+        </li>
+
+        <li ng-show="currentUser">
+          <a ng-click="auth.logOut()">Log Out</a>
         </li>
       </ul>
     </div><!--/.nav-collapse -->

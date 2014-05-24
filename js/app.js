@@ -25,6 +25,16 @@ config(['$routeProvider', function ($routeProvider) {
     controller: 'accountCtrl'
   });
 
+  $routeProvider.when('/login', {
+    templateUrl: 'partials/login.html',
+    controller: 'loginCtrl'
+  });
+
+  $routeProvider.when('/admin', {
+    templateUrl: 'partials/admin.html',
+    controller: 'adminCtrl'
+  });
+
   $routeProvider.when('/single', {
     templateUrl: 'partials/single.html',
     controller: 'singleCtrl'
@@ -37,29 +47,71 @@ config(['$routeProvider', function ($routeProvider) {
 run(['$rootScope', '$location', 'MargUser', function ($scope, $location, MargUser) {
   Parse.initialize("xTwk4RNMtDgUU4D9wE2li0AyicN8l3yy4U80gqqn", "9joElVWS65tA2L5y8MKFTfQQCUrqDYqDAxTwXZeE");
 
-  $scope.currentUser = MargUser.current();
+  // User functions
+  // TODO: Get some feedback about how this should be coded. Is it appropriate to use $rootScope?
+  $scope.auth = {
+    setCurrent: function () {
+      $scope.currentUser = MargUser.current();
+    },
+    signUp: function (form) {
+      var user = new MargUser();
+      user.set('email', form.email);
+      user.set('username', form.username);
+      user.set('password', form.password);
 
-  $scope.signUp = function (form) {
-    var user = new MargUser();
-    user.set("email", form.email);
-    user.set("username", form.username);
-    user.set("password", form.password);
-
-    user.signUp(null, {
-      success: function (user) {
-        $scope.currentUser = user;
-        $scope.$apply(); // Notify AngularJS to sync currentUser
-      },
-      error: function (user, error) {
-        alert("Unable to sign up:  " + error.code + " " + error.message);
-      }
-    });
+      user.signUp(null, {
+        success: function (user) {
+          $scope.currentUser = user;
+          $scope.$apply(); // Notify AngularJS to sync currentUser
+        },
+        error: function (user, error) {
+          alert('Unable to sign up:  ' + error.code + ' ' + error.message);
+        }
+      });
+    },
+    login: function (form) {
+      console.log(form);
+      MargUser.logIn(form.username, form.password, {
+        success: function (user) {
+          // Do stuff after successful login.
+          console.log(user);
+        },
+        error: function (user, error) {
+          // The login failed. Check error to see why.
+          console.log(user);
+          console.log(error);
+        }
+      });
+    },
+    logOut: function (form) {
+      MargUser.logOut();
+      $scope.currentUser = null;
+    }
   };
 
-  $scope.logOut = function (form) {
-    MargUser.logOut();
-    $scope.currentUser = null;
-  };
+  $scope.auth.setCurrent();
+
+  // $scope.signUp = function (form) {
+  //   var user = new MargUser();
+  //   user.set("email", form.email);
+  //   user.set("username", form.username);
+  //   user.set("password", form.password);
+  //
+  //   user.signUp(null, {
+  //     success: function (user) {
+  //       $scope.currentUser = user;
+  //       $scope.$apply(); // Notify AngularJS to sync currentUser
+  //     },
+  //     error: function (user, error) {
+  //       alert("Unable to sign up:  " + error.code + " " + error.message);
+  //     }
+  //   });
+  // };
+  //
+  // $scope.logOut = function (form) {
+  //   MargUser.logOut();
+  //   $scope.currentUser = null;
+  // };
 
   window.fbAsyncInit = function() {
     Parse.FacebookUtils.init({
