@@ -44,8 +44,26 @@ config(['$routeProvider', function ($routeProvider) {
     redirectTo: '/'
   });
 }]).
-run(['$rootScope', '$location', 'MargUser', function ($scope, $location, MargUser) {
+run(['$rootScope', '$location', '$q', 'MargUser', 'MargaritaCollection', function ($scope, $location, $q, MargUser, MargaritaCollection) {
   Parse.initialize("xTwk4RNMtDgUU4D9wE2li0AyicN8l3yy4U80gqqn", "9joElVWS65tA2L5y8MKFTfQQCUrqDYqDAxTwXZeE");
+
+  // Load Margaritas
+  $scope.margaritas = new MargaritaCollection();
+
+  $scope.margaritas.fetch({
+    success: function (collection) {
+      console.log('> The collection was retrieved.');
+
+      $scope.$apply();
+
+      // collection.each( function (object) {
+      //   console.log(object);
+      // });
+    },
+    error: function (collection, error) {
+      console.log('> The collection could not be retrieved.');
+    }
+  });
 
   // User functions
   // TODO: Get some feedback about how this should be coded. Is it appropriate to use $rootScope?

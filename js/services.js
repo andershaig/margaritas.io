@@ -5,8 +5,10 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('marg.services', []).
+
 value('version', '0.1').
-factory('MargUser', function () {
+
+factory('MargUser', [ function () {
   var User = Parse.User.extend({
     getImage : function () {
       // return the appropriate facebook image url or gravatar image url
@@ -17,23 +19,58 @@ factory('MargUser', function () {
   });
 
   return User;
-}).
-factory('Margarita', function ($q) {
+}]).
+
+factory('MargaritaCollection', ['Margarita', function (Margarita) {
+  // Collection of "Margarita" objects
+  var MargaritaCollection = Parse.Collection.extend({
+    model: Margarita
+  });
+
+  return MargaritaCollection;
+}]).
+
+factory('Margarita', ['Helpers', function (Helpers) {
 
   var Margarita = Parse.Object.extend('Margarita', {
-    // Instance methods
+    // Instance Methods
+    save: function () {
+      // return ParseQuery(obj, {
+      //   functionToCall: 'save',
+      //   params: [null]
+      // });
+    },
+    delete: function () {
+      // return ParseQuery(obj, {
+      //   functionToCall: 'destroy'
+      // });
+    },
+    fetch: function () {
+      // return ParseQuery(obj, {
+      //   functionToCall: 'fetch'
+      // });
+    },
+    initialize: function (attrs, options) {
+      console.log('> Initialize function called');
+    }
   }, {
-    // Class methods
+    // Class Methods
     list: function () {
       var defer = $q.defer();
 
       var query = new Parse.Query(this);
       query.find({
         success: function (data) {
-          defer.resolve(data);
+          console.log(data);
+
+          $rootScope.$apply(function () {
+            defer.resolve(data);
+          });
         },
         error: function (err) {
-          defer.reject(err);
+          $rootScope.$apply(function () {
+            defer.reject(err);
+          });
         }
       });
 
@@ -46,10 +83,14 @@ factory('Margarita', function ($q) {
       query.equalTo('author', user);
       query.find({
         success: function (data) {
-          defer.resolve(data);
+          $rootScope.$apply(function () {
+            defer.resolve(data);
+          });
         },
         error: function (err) {
-          defer.reject(err);
+          $rootScope.$apply(function () {
+            defer.reject(err);
+          });
         }
       });
 
@@ -57,36 +98,49 @@ factory('Margarita', function ($q) {
     }
   });
 
-  // Properties
-  Object.defineProperty(Margarita.prototype, 'author', {
-    get: function () {
-      return this.get('author');
-    },
-    set: function (value) {
-      this.set('author', value);
-    }
-  });
+  // Expose attributes get and set
+  var fields = ['author', 'title', 'rating'];
 
-  Object.defineProperty(Margarita.prototype, 'title', {
-    get: function () {
-      return this.get('title');
-    },
-    set: function (value) {
-      this.set('title', value);
-    }
-  });
-
-  Object.defineProperty(Margarita.prototype, 'rating', {
-    get: function () {
-      return this.get('rating');
-    },
-    set: function (value) {
-      this.set('rating', value);
-    }
-  });
+  Helpers.exposeAttributes(Margarita, fields);
 
   return Margarita;
-}).
+}]).
+
+factory('Helpers', [ function () {
+  return {
+    exposeAttributes: function (parseObject, fields) {
+      // Verify Parameters
+      if (parseObject === undefined) {
+        throw new Error('> Missing parseObject');
+      }
+
+      if (fields === undefined) {
+        throw new Error('> Missing fields');
+      }
+
+      // Add dynamic properties from fields
+      var self = this;
+
+      for (var i = 0; i < fields.length; i++) {
+        (function () {
+          var propName = fields[i];
+
+          console.log('> Setting up ' + propName);
+
+          Object.defineProperty(parseObject.prototype, propName, {
+            get: function () {
+              return this.get(propName);
+            },
+            set: function (value) {
+              this.set(propName, value);
+            }
+          });
+        })();
+      }
+    }
+  };
+}]).
+
 factory('Placeholder', ['$scope', function ($scope) {
   // Placeholder
 }]);

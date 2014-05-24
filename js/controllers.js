@@ -82,7 +82,15 @@ angular.module('marg.controllers', [])
 }])
 .controller('homeCtrl', ['$scope', '$http', 'Margarita', function ($scope, $http, Margarita) {
   $scope.activeRecipe = null;
-  //$scope.recipes = []; // = TODO: Get recipes from storage instead of $http?
+  $scope.recipes = [];
+
+  // // TODO: Only load margaritas once
+  // Margaritas.list().then(function (Margaritas) {
+  //   $scope.recipes = Margaritas;
+  // }, function (err) {
+  //   // Something went wrong, handle the error
+  //   console.log(err);
+  // });
 
   $scope.$watch('recipes', function () {
     // TODO: Save on changes?
@@ -101,13 +109,7 @@ angular.module('marg.controllers', [])
     $scope.activeRecipe = null;
   }
 
-  // TODO: Only load margaritas once
-  Margarita.list().then(function (Margaritas) {
-    $scope.recipes = Margaritas;
-  }, function (err) {
-    // Something went wrong, handle the error
-    console.log(err);
-  });
+
 
 }])
 .controller('aboutCtrl', ['$scope', function ($scope) {
