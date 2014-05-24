@@ -99,7 +99,7 @@ factory('Margarita', ['Helpers', function (Helpers) {
   });
 
   // Expose attributes get and set
-  var fields = ['author', 'title', 'rating'];
+  var fields = ['createdBy', 'title', 'description', 'rating'];
 
   Helpers.exposeAttributes(Margarita, fields);
 
@@ -125,7 +125,7 @@ factory('Helpers', [ function () {
         (function () {
           var propName = fields[i];
 
-          console.log('> Setting up ' + propName);
+          // console.log('> Setting up ' + propName);
 
           Object.defineProperty(parseObject.prototype, propName, {
             get: function () {

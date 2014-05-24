@@ -4,6 +4,12 @@
 
 angular.module('marg.controllers', [])
 .controller('headerCtrl', ['$scope', '$modal', function ($scope, $modal) {
+  // Debugging Only
+  $scope.debug = false;
+  $scope.toggleDebugging = function () {
+    $scope.debug = !$scope.debug;
+  }
+
   $scope.register = function () {
     console.log('> Modal Opening');
 

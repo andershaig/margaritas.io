@@ -11,6 +11,13 @@
 * http://angular-ui.github.io/bootstrap/
 * http://www.bootstrapcdn.com/
 
+### MVP TODOs:
+* Move all code possible from the app start and into services
+* Build the proper relational database structure
+* Clean up the design
+* Build the single pages
+* Add search / sort / browse pages
+
 ### Roadmap:
 * Create a user system to allow rating / saving
   * Include a social login option as well.
