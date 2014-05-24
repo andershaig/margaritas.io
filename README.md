@@ -17,7 +17,7 @@
 * Move all code possible from the app start and into services
 * Build the proper relational database structure
 * Clean up the design
-* Build the single pages
+* Build the single pages (and routing)
 * Add search / sort / browse pages
 
 ### Roadmap:

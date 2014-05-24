@@ -40,6 +40,11 @@ config(['$routeProvider', function ($routeProvider) {
     controller: 'singleCtrl'
   });
 
+  $routeProvider.when('/margaritas/:id', {
+    templateUrl: 'partials/single.html',
+    controller: 'singleCtrl'
+  });
+
   $routeProvider.otherwise({
     redirectTo: '/'
   });

@@ -97,8 +97,9 @@ angular.module('marg.controllers', [])
 .controller('aboutCtrl', ['$scope', function ($scope) {
 
 }])
-.controller('singleCtrl', ['$scope', function ($scope) {
-
+.controller('singleCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+  $scope.margId = $routeParams.id;
+  console.log('Marg ID: ' + $scope.margId);
 }])
 .controller('loginCtrl', ['$scope', function ($scope) {
 
