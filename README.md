@@ -1,6 +1,8 @@
 ### Helpful Links
 * http://josebolanos.wordpress.com/2013/09/30/5-tips-for-using-parse-with-angularjs/
 * http://popdevelop.com/2013/11/parse-com-and-angularjs-for-easy-setup-of-user-authentication/
+* http://www.dtelepathy.com/blog/design/ux-flows-sign-ups
+* http://www.smashingmagazine.com/2011/05/05/innovative-techniques-to-simplify-signups-and-logins/
 
 ### Gravatar:
 * https://github.com/lavinjj/angularjs-gravatardirective
