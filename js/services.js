@@ -51,51 +51,10 @@ factory('Margarita', ['Helpers', function (Helpers) {
       // });
     },
     initialize: function (attrs, options) {
-      console.log('> Initialize function called');
+      // console.log('> Initialize function called');
     }
   }, {
     // Class Methods
-    list: function () {
-      var defer = $q.defer();
-
-      var query = new Parse.Query(this);
-      query.find({
-        success: function (data) {
-          console.log(data);
-
-          $rootScope.$apply(function () {
-            defer.resolve(data);
-          });
-        },
-        error: function (err) {
-          $rootScope.$apply(function () {
-            defer.reject(err);
-          });
-        }
-      });
-
-      return defer.promise;
-    },
-    listByUser: function (user) {
-      var defer = $q.defer();
-
-      var query = new Parse.Query(this);
-      query.equalTo('author', user);
-      query.find({
-        success: function (data) {
-          $rootScope.$apply(function () {
-            defer.resolve(data);
-          });
-        },
-        error: function (err) {
-          $rootScope.$apply(function () {
-            defer.reject(err);
-          });
-        }
-      });
-
-      return defer.promise;
-    }
   });
 
   // Expose attributes get and set
