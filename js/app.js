@@ -50,9 +50,6 @@ run(['$rootScope', '$location', 'MargUser', function ($scope, $location, MargUse
   // User functions
   // TODO: Get some feedback about how this should be coded. Is it appropriate to use $rootScope?
   $scope.auth = {
-    setCurrent: function () {
-      $scope.currentUser = MargUser.current();
-    },
     signUp: function (form) {
       var user = new MargUser();
       user.set('email', form.email);
@@ -75,6 +72,8 @@ run(['$rootScope', '$location', 'MargUser', function ($scope, $location, MargUse
         success: function (user) {
           // Do stuff after successful login.
           console.log(user);
+          $scope.currentUser = user;
+          $scope.$apply(); // Notify AngularJS to sync currentUser
         },
         error: function (user, error) {
           // The login failed. Check error to see why.
@@ -89,29 +88,7 @@ run(['$rootScope', '$location', 'MargUser', function ($scope, $location, MargUse
     }
   };
 
-  $scope.auth.setCurrent();
-
-  // $scope.signUp = function (form) {
-  //   var user = new MargUser();
-  //   user.set("email", form.email);
-  //   user.set("username", form.username);
-  //   user.set("password", form.password);
-  //
-  //   user.signUp(null, {
-  //     success: function (user) {
-  //       $scope.currentUser = user;
-  //       $scope.$apply(); // Notify AngularJS to sync currentUser
-  //     },
-  //     error: function (user, error) {
-  //       alert("Unable to sign up:  " + error.code + " " + error.message);
-  //     }
-  //   });
-  // };
-  //
-  // $scope.logOut = function (form) {
-  //   MargUser.logOut();
-  //   $scope.currentUser = null;
-  // };
+  $scope.currentUser = MargUser.current();
 
   window.fbAsyncInit = function() {
     Parse.FacebookUtils.init({
