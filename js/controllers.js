@@ -4,12 +4,6 @@
 
 angular.module('marg.controllers', [])
 .controller('headerCtrl', ['$scope', '$modal', function ($scope, $modal) {
-  // Debugging Only
-  $scope.debug = false;
-  $scope.toggleDebugging = function () {
-    $scope.debug = !$scope.debug;
-  }
-
   $scope.register = function () {
     console.log('> Modal Opening');
 
@@ -87,35 +81,17 @@ angular.module('marg.controllers', [])
   };
 }])
 .controller('homeCtrl', ['$scope', '$http', 'Margarita', function ($scope, $http, Margarita) {
-  $scope.activeRecipe = null;
-  $scope.recipes = [];
+  //$scope.activeRecipe = null;
 
-  // // TODO: Only load margaritas once
-  // Margaritas.list().then(function (Margaritas) {
-  //   $scope.recipes = Margaritas;
-  // }, function (err) {
-  //   // Something went wrong, handle the error
-  //   console.log(err);
-  // });
-
-  $scope.$watch('recipes', function () {
-    // TODO: Save on changes?
-  }, true);
-
-  console.log('> Current User')
-  console.log($scope.currentUser);
-
-  $scope.showRecipe = function (recipe) {
-    console.log('> Show Recipe');
-    $scope.activeRecipe = recipe;
-  }
-
-  $scope.hideRecipe = function () {
-    console.log('> Hide Recipe');
-    $scope.activeRecipe = null;
-  }
-
-
+  // $scope.showRecipe = function (recipe) {
+  //   console.log('> Show Recipe');
+  //   $scope.activeRecipe = recipe;
+  // }
+  //
+  // $scope.hideRecipe = function () {
+  //   console.log('> Hide Recipe');
+  //   $scope.activeRecipe = null;
+  // }
 
 }])
 .controller('aboutCtrl', ['$scope', function ($scope) {

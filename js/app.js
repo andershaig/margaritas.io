@@ -47,6 +47,14 @@ config(['$routeProvider', function ($routeProvider) {
 run(['$rootScope', '$location', '$q', 'MargUser', 'MargaritaCollection', function ($scope, $location, $q, MargUser, MargaritaCollection) {
   Parse.initialize("xTwk4RNMtDgUU4D9wE2li0AyicN8l3yy4U80gqqn", "9joElVWS65tA2L5y8MKFTfQQCUrqDYqDAxTwXZeE");
 
+  // TEMP: Debugging
+  $scope.debug = false;
+  $scope.toggleDebugging = function () {
+    $scope.debug = !$scope.debug;
+    console.log('> Debugging: ' + $scope.debug);
+  }
+  // TEMP: End Debugging
+
   // Load Margaritas
   $scope.margaritas = new MargaritaCollection();
 
