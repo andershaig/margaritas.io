@@ -12,4 +12,7 @@
 * http://www.bootstrapcdn.com/
 
 ### Roadmap:
-* Include a social login option as well.
+* Create a user system to allow rating / saving
+  * Include a social login option as well.
+* Pictures of the Margaritas (removed for MVP)
+* More advanced shopping list calculation / recipe features?
