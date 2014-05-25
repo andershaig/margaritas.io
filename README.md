@@ -15,7 +15,8 @@
 
 ### MVP TODOs:
 * Build the single pages (and routing)
-* Look into views as a way to filter a collection without messing with it too much
+* Add loading indicator system
+* Look into (Parse) views as a way to filter a collection without messing with it too much
 * Move all code possible from the app start and into services
 * Build the proper relational database structure
 * Clean up the design

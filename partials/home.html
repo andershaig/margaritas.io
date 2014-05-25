@@ -1,7 +1,7 @@
 <!-- Main component for a primary marketing message or call to action -->
-<div class="jumbotron panel panel-default">
+<div class="jumbotron">
   <h1>Delicious Margaritas</h1>
-  <p>Just have one single call to action here, not both. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque deleniti error vero repellendus praesentium nostrum corporis quasi culpa, explicabo. Id et illum vel repellat repellendus.</p>
+  <p>Just have one single call to action here, not both. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque deleniti error vero repellendus.</p>
   <p>
     <a class="btn btn-lg btn-primary" href="" role="button">Browse Margaritas &raquo;</a>
   </p>
@@ -12,7 +12,9 @@
   <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="margarita in margaritas.models track by margarita.id">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">{{margarita.title}}</h3>
+        <h3 class="panel-title">
+          <a href="#/margaritas/{{margarita.id}}">{{margarita.title}}</a>
+        </h3>
       </div>
 
       <div class="panel-body">
