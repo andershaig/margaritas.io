@@ -45,14 +45,12 @@ angular.module('marg.controllers', [])
   $scope.login = function () {
     console.log('> Modal Opening');
 
-    $scope.items = ['item1', 'item2', 'item3'];
-
     var loginModal = $modal.open({
       templateUrl: 'partials/login.html',
       controller: LoginModalCtrl,
       resolve: {
         items: function () {
-          return $scope.items;
+          return $scope.user;
         }
       }
     });
@@ -64,15 +62,9 @@ angular.module('marg.controllers', [])
     });
   };
 
-  var LoginModalCtrl = function ($scope, $modalInstance, items) {
-    $scope.items = items;
-
-    $scope.selected = {
-      item: $scope.items[0]
-    };
-
+  var LoginModalCtrl = function ($scope, $modalInstance) {
     $scope.ok = function () {
-      $modalInstance.close($scope.selected.item);
+      $modalInstance.close($scope.user);
     };
 
     $scope.cancel = function () {

@@ -1,5 +1,3 @@
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
-
 html {
   position: relative;
   min-height: 100%;
@@ -9,6 +7,12 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 90px;
 }
+
+.navbar-fixed-top {
+  position: absolute;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .main-container {
   padding-top: 70px;
@@ -20,7 +24,6 @@ footer {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #EEE;
 }
 
 footer .text-muted {

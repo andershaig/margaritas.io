@@ -14,11 +14,13 @@
 * http://www.bootstrapcdn.com/
 
 ### MVP TODOs:
+* Build the single pages (and routing)
+* Look into views as a way to filter a collection without messing with it too much
 * Move all code possible from the app start and into services
 * Build the proper relational database structure
 * Clean up the design
-* Build the single pages (and routing)
 * Add search / sort / browse pages
+* Fix the tiny nav menu slideout / mobile view
 
 ### Roadmap:
 * Create a user system to allow rating / saving

@@ -1,5 +1,5 @@
 <!-- Main component for a primary marketing message or call to action -->
-<div class="jumbotron">
+<div class="jumbotron panel panel-default">
   <h1>Delicious Margaritas</h1>
   <p>Just have one single call to action here, not both. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque deleniti error vero repellendus praesentium nostrum corporis quasi culpa, explicabo. Id et illum vel repellat repellendus.</p>
   <p>
@@ -10,11 +10,14 @@
 <!-- Recipe Grid -->
 <div class="row">
   <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="margarita in margaritas.models track by margarita.id">
-    <div class="thumbnail">
-      <pre ng-show="debug">{{margarita | json}}</pre>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{margarita.title}}</h3>
+      </div>
 
-      <div class="caption">
-        <h3>{{margarita.title}}</h3>
+      <div class="panel-body">
+        <pre ng-show="debug">{{margarita | json}}</pre>
+
         <p>Creator: {{margarita.createdBy}}</p>
         <p>Rating: {{margarita.rating}}</p>
         <p>Desc: {{margarita.description}}</p>
