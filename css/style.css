@@ -32,9 +32,11 @@ body {
 }
 
 .panel-default > .panel-heading {
-  color: #333;
+  color: #565A96;
   background-color: transparent;
-  border-color: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: 5px solid #565A96;
   border-bottom:1px solid #EEE;
   padding:20px 30px;
   background:0 0 no-repeat;
@@ -42,9 +44,9 @@ body {
 }
 
 .panel-default > .panel-heading:first-child {
-  -webkit-border-radius: 5px 5px 0 0;
-     -moz-border-radius: 5px 5px 0 0;
-          border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+     -moz-border-radius: 4px 4px 0 0;
+          border-radius: 4px 4px 0 0;
 }
 
 .panel-body {
