@@ -84,9 +84,33 @@ angular.module('marg.controllers', [])
 .controller('aboutCtrl', ['$scope', function ($scope) {
 
 }])
-.controller('singleCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
-  $scope.margId = $routeParams.id;
-  console.log('Marg ID: ' + $scope.margId);
+.controller('singleCtrl', ['$scope', '$routeParams', 'Margarita', function ($scope, $routeParams, Margarita) {
+  console.log('Marg ID: ' + $routeParams.id);
+
+  console.log($scope.margaritas.length);
+  if ($scope.margaritas.length) {
+    $scope.activeMarg = $scope.margaritas.get($routeParams.id);
+    console.log($scope.activeMarg);
+  } else {
+    var query = new Parse.Query(Margarita);
+    query.get($routeParams.id, {
+      success: function(marg) {
+        // The object was retrieved successfully.
+        $scope.activeMarg = marg;
+        $scope.$apply();
+        console.log($scope.activeMarg);
+      },
+      error: function(object, error) {
+        // The object was not retrieved successfully.
+        // error is a Parse.Error with an error code and description.
+        console.log('> Parse.Query Error');
+        console.log(object);
+        console.log(error);
+      }
+    });
+  }
+
+
 }])
 .controller('loginCtrl', ['$scope', function ($scope) {
 

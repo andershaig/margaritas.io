@@ -1,10 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Perfect Margarita</h3>
+    <h3 class="panel-title">{{activeMarg.title}}</h3>
   </div>
 
   <div class="panel-body">
-    <!-- <p><img class="img-responsive" src="http://placekitten.com/1200/300" alt="..."></p> -->
+    <p>{{activeMarg.description}}</p>
 
     <div class="single-ingredients">
       <ul class="ingredient-list">
@@ -61,7 +61,7 @@
 
     <div class="single-meta clearfix">
       <div class="single-rating">
-        <span class="single-rating-count">15</span>
+        <span class="single-rating-count">{{activeMarg.rating}}</span>
         <span class="single-rating-icon"></span>
       </div>
     </div>

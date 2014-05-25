@@ -35,11 +35,6 @@ config(['$routeProvider', function ($routeProvider) {
     controller: 'adminCtrl'
   });
 
-  $routeProvider.when('/single', {
-    templateUrl: 'partials/single.html',
-    controller: 'singleCtrl'
-  });
-
   $routeProvider.when('/margaritas/:id', {
     templateUrl: 'partials/single.html',
     controller: 'singleCtrl'
