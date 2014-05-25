@@ -21,6 +21,9 @@
 * Clean up the design
 * Add search / sort / browse pages
 * Fix the tiny nav menu slideout / mobile view
+* Combine register and login modals
+* Add error checking / visible warnings to the modal to make sure it doesn't close
+if you haven't supplied all the info or supplied incorrect info.
 
 ### Roadmap:
 * Create a user system to allow rating / saving

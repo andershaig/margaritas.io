@@ -47,24 +47,19 @@ angular.module('marg.controllers', [])
 
     var loginModal = $modal.open({
       templateUrl: 'partials/login.html',
-      controller: LoginModalCtrl,
-      resolve: {
-        items: function () {
-          return $scope.user;
-        }
-      }
+      controller: LoginModalCtrl
     });
 
-    loginModal.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
+    loginModal.result.then(function (form) {
+      $scope.auth.login(form)
     }, function () {
       console.info('Modal dismissed at: ' + new Date());
     });
   };
 
   var LoginModalCtrl = function ($scope, $modalInstance) {
-    $scope.ok = function () {
-      $modalInstance.close($scope.user);
+    $scope.ok = function (user) {
+      $modalInstance.close(user);
     };
 
     $scope.cancel = function () {
