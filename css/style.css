@@ -7,18 +7,35 @@ body {
 }
 
 .navbar-default {
-  background-color:#FFF;
+  background-color:rgba(255,255,255,0.15);
   border:none;
+}
+
+.navbar-default .navbar-brand {
+  color:#FFF;
+}
+
+.navbar-default .navbar-brand:hover {
+  color:#FFF;
+  text-decoration:underline;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #FFF;
+}
+
+.navbar-default .navbar-nav > li:hover > a {
+  color: #FFF;
+  text-decoration:underline;
+}
+
+.jumbotron {
+  background-color:#6A638D;
+  color:#FFF;
 }
 
 .panel-default {
   background: #FFF;
-  /*background: -moz-linear-gradient(top, #FFF 0%, #F7F8F9 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF), color-stop(100%,#F7F8F9));
-  background: -webkit-linear-gradient(top, #FFF 0%,#F7F8F9 100%);
-  background: -o-linear-gradient(top, #FFF 0%,#F7F8F9 100%);
-  background: -ms-linear-gradient(top, #FFF 0%,#F7F8F9 100%);
-  background: linear-gradient(top, #FFF 0%,#F7F8F9 100%);*/
   border:none;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
