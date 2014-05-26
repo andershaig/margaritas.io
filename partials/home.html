@@ -1,18 +1,10 @@
 <div class="jumbotron">
   <div class="container">
-    <div class="row">
-      <div class="col-md-4 hidden-sm hidden-xs">
-        <img class="img-responsive center-block" src="/img/drink.png" alt="">
-      </div>
-
-      <div class="col-md-8 col-sm-12 col-xs-12">
-        <h1>Delicious Margaritas</h1>
-        <p>Just have one single call to action here, not both. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque deleniti error vero repellendus.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="" role="button">Browse Margaritas &raquo;</a>
-        </p>
-      </div>
-    </div>
+    <h1>Delicious Margaritas</h1>
+    <p>Just have one single call to action here, not both. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque deleniti error vero repellendus.</p>
+    <p>
+      <a class="btn btn-lg btn-primary" href="" role="button">Browse Margaritas</a>
+    </p>
   </div>
 </div>
 
@@ -30,13 +22,15 @@
         <div class="panel-body">
           <pre ng-show="debug">{{margarita | json}}</pre>
 
-          <p>Creator: {{margarita.createdBy}}</p>
           <p>Rating: {{margarita.rating}}</p>
           <p>Desc: {{margarita.description}}</p>
+          <!--
+          <p>Creator: {{margarita.createdBy}}</p>
           <p>Created: {{margarita.createdAt | date:'longDate'}}</p>
           <p>Updated: {{margarita.updatedAt | date:'longDate'}}</p>
+          -->
           <p>
-            <a href="#/margaritas/{{margarita.id}}" class="btn btn-primary" role="button">View Margarita &raquo;</a>
+            <a href="#/margaritas/{{margarita.id}}" class="btn btn-primary" role="button">View Margarita</a>
           </p>
         </div>
       </div>

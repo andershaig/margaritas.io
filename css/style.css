@@ -31,7 +31,27 @@ body {
 
 .jumbotron {
   background-color:#6A638D;
+  background-image:url(../img/jumbotron.jpg);
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
   color:#FFF;
+}
+
+.btn-primary {
+  color: #FFF;
+  background-color: #35A5AD;
+  border-color: #35A5AD;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #FFF;
+  background-color: #39B1BA;
+  border-color: #39B1BA;
 }
 
 .panel-default {
