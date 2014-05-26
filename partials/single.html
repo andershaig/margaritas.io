@@ -1,68 +1,70 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{activeMarg.title}}</h3>
-  </div>
-
-  <div class="panel-body">
-    <p>{{activeMarg.description}}</p>
-
-    <div class="single-ingredients">
-      <ul class="ingredient-list">
-        <!--
-
-        1/4 => &frac14;
-        1/2 => &frac12;
-        3/4 => &frac34;
-
-        1/3 => &frac13;
-        2/3 => &frac23;
-
-        Maybe with some CSS:
-        <sup>1</sup>&frasl;<sub>10</sub>
-
-        -->
-        <li class="ingredient">
-          <span class="ingredient-amount">1 &frac12;</span>
-          <span class="ingredient-unit">oz</span>
-          <span class="ingredient-name">Tequila</span>
-        </li>
-
-        <li class="ingredient">
-          <span class="ingredient-amount">&frac12;</span>
-          <span class="ingredient-unit">oz</span>
-          <span class="ingredient-name">Cointreau</span>
-        </li>
-
-        <li class="ingredient">
-          <span class="ingredient-amount">&frac12;</span>
-          <span class="ingredient-unit">oz</span>
-          <span class="ingredient-name">Gran Mariner</span>
-        </li>
-
-        <li class="ingredient">
-          <span class="ingredient-amount">1</span>
-          <span class="ingredient-unit">oz</span>
-          <span class="ingredient-name">Lime Juice</span>
-        </li>
-      </ul>
+<div class="container main-container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{activeMarg.title}}</h3>
     </div>
 
-    <div class="single-instructions">
-      <ol class="instruction-list">
-        <li class="instruction">
-          <span class="instruction-text">If using salt, place in a shallow dish. Moisten the rim of a rocks glass with a dampened paper towel, then dip in salt.</span>
-        </li>
+    <div class="panel-body">
+      <p>{{activeMarg.description}}</p>
 
-        <li class="instruction">
-          <span class="instruction-text">Fill the glass with ice; add tequila, lime juice, and Cointreau; and stir a few times until chilled. Serve immediately.</span>
-        </li>
-      </ol>
-    </div>
+      <div class="single-ingredients">
+        <ul class="ingredient-list">
+          <!--
 
-    <div class="single-meta clearfix">
-      <div class="single-rating">
-        <span class="single-rating-count">{{activeMarg.rating}}</span>
-        <span class="single-rating-icon"></span>
+          1/4 => &frac14;
+          1/2 => &frac12;
+          3/4 => &frac34;
+
+          1/3 => &frac13;
+          2/3 => &frac23;
+
+          Maybe with some CSS:
+          <sup>1</sup>&frasl;<sub>10</sub>
+
+          -->
+          <li class="ingredient">
+            <span class="ingredient-amount">1 &frac12;</span>
+            <span class="ingredient-unit">oz</span>
+            <span class="ingredient-name">Tequila</span>
+          </li>
+
+          <li class="ingredient">
+            <span class="ingredient-amount">&frac12;</span>
+            <span class="ingredient-unit">oz</span>
+            <span class="ingredient-name">Cointreau</span>
+          </li>
+
+          <li class="ingredient">
+            <span class="ingredient-amount">&frac12;</span>
+            <span class="ingredient-unit">oz</span>
+            <span class="ingredient-name">Gran Mariner</span>
+          </li>
+
+          <li class="ingredient">
+            <span class="ingredient-amount">1</span>
+            <span class="ingredient-unit">oz</span>
+            <span class="ingredient-name">Lime Juice</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="single-instructions">
+        <ol class="instruction-list">
+          <li class="instruction">
+            <span class="instruction-text">If using salt, place in a shallow dish. Moisten the rim of a rocks glass with a dampened paper towel, then dip in salt.</span>
+          </li>
+
+          <li class="instruction">
+            <span class="instruction-text">Fill the glass with ice; add tequila, lime juice, and Cointreau; and stir a few times until chilled. Serve immediately.</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="single-meta clearfix">
+        <div class="single-rating">
+          <span class="single-rating-count">{{activeMarg.rating}}</span>
+          <span class="single-rating-icon"></span>
+        </div>
       </div>
     </div>
   </div>

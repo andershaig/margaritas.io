@@ -1,31 +1,33 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Account Settings</h3>
-  </div>
+<div class="container main-container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Account Settings</h3>
+    </div>
 
-  <div class="panel-body">
-    <div class="user-avatar user-avatar-large" style="background-color:rgba(0,0,0,0.25)"></div>
+    <div class="panel-body">
+      <div class="user-avatar user-avatar-large" style="background-color:rgba(0,0,0,0.25)"></div>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 
-    <form role="form">
-      <div class="form-group">
-        <label for="username">Username ({{currentUser.get('username')}})</label>
-        <input type="text" class="form-control" id="username" placeholder="Enter username">
-      </div>
+      <form role="form">
+        <div class="form-group">
+          <label for="username">Username ({{currentUser.get('username')}})</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter username">
+        </div>
 
-      <div class="form-group">
-        <label for="passwd">Password</label>
-        <input type="password" class="form-control" id="passwd" placeholder="Password">
-      </div>
+        <div class="form-group">
+          <label for="passwd">Password</label>
+          <input type="password" class="form-control" id="passwd" placeholder="Password">
+        </div>
 
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Check me out
-        </label>
-      </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Check me out
+          </label>
+        </div>
 
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
   </div>
 </div>

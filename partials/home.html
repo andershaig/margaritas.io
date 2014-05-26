@@ -1,33 +1,34 @@
-<!-- Main component for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <h1>Delicious Margaritas</h1>
-  <p>Just have one single call to action here, not both. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque deleniti error vero repellendus.</p>
-  <p>
-    <a class="btn btn-lg btn-primary" href="" role="button">Browse Margaritas &raquo;</a>
-  </p>
-</div>
+<div class="container main-container">
+  <div class="jumbotron">
+    <h1>Delicious Margaritas</h1>
+    <p>Just have one single call to action here, not both. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque deleniti error vero repellendus.</p>
+    <p>
+      <a class="btn btn-lg btn-primary" href="" role="button">Browse Margaritas &raquo;</a>
+    </p>
+  </div>
 
-<!-- Recipe Grid -->
-<div class="row">
-  <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="margarita in margaritas.models track by margarita.id">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <a href="#/margaritas/{{margarita.id}}">{{margarita.title}}</a>
-        </h3>
-      </div>
+  <!-- Recipe Grid -->
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="margarita in margaritas.models track by margarita.id">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a href="#/margaritas/{{margarita.id}}">{{margarita.title}}</a>
+          </h3>
+        </div>
 
-      <div class="panel-body">
-        <pre ng-show="debug">{{margarita | json}}</pre>
+        <div class="panel-body">
+          <pre ng-show="debug">{{margarita | json}}</pre>
 
-        <p>Creator: {{margarita.createdBy}}</p>
-        <p>Rating: {{margarita.rating}}</p>
-        <p>Desc: {{margarita.description}}</p>
-        <p>Created: {{margarita.createdAt | date:'longDate'}}</p>
-        <p>Updated: {{margarita.updatedAt | date:'longDate'}}</p>
-        <p>
-          <a href="#/margaritas/{{margarita.id}}" class="btn btn-primary" role="button">View Margarita &raquo;</a>
-        </p>
+          <p>Creator: {{margarita.createdBy}}</p>
+          <p>Rating: {{margarita.rating}}</p>
+          <p>Desc: {{margarita.description}}</p>
+          <p>Created: {{margarita.createdAt | date:'longDate'}}</p>
+          <p>Updated: {{margarita.updatedAt | date:'longDate'}}</p>
+          <p>
+            <a href="#/margaritas/{{margarita.id}}" class="btn btn-primary" role="button">View Margarita &raquo;</a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
