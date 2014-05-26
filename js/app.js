@@ -25,11 +25,6 @@ config(['$routeProvider', function ($routeProvider) {
     controller: 'accountCtrl'
   });
 
-  $routeProvider.when('/login', {
-    templateUrl: 'partials/login.html',
-    controller: 'loginCtrl'
-  });
-
   $routeProvider.when('/admin', {
     templateUrl: 'partials/admin.html',
     controller: 'adminCtrl'

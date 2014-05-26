@@ -112,9 +112,6 @@ angular.module('marg.controllers', [])
 
 
 }])
-.controller('loginCtrl', ['$scope', function ($scope) {
-
-}])
 .controller('adminCtrl', ['$scope', function ($scope) {
 
 }])
