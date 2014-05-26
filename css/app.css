@@ -12,10 +12,15 @@ body {
   position: absolute;
 }
 
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.nav, .pagination, .panel-title a { cursor: pointer; }
 
 .main-container {
   padding-top: 70px;
+}
+
+/* Home Page */
+.jumbotron {
+  padding-top: 98px;
 }
 
 footer {
