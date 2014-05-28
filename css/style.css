@@ -17,7 +17,6 @@ body {
 
 .navbar-default .navbar-brand:hover {
   color:#FFF;
-  text-decoration:underline;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -26,7 +25,14 @@ body {
 
 .navbar-default .navbar-nav > li:hover > a {
   color: #FFF;
-  text-decoration:underline;
+  background-color:rgba(255,255,255,0.15);
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color:rgba(255,255,255,0.15);
+  color: #FFF;
 }
 
 .jumbotron {
