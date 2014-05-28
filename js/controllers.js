@@ -68,8 +68,6 @@ angular.module('marg.controllers', [])
   };
 }])
 .controller('homeCtrl', ['$scope', '$http', 'Margarita', function ($scope, $http, Margarita) {
-  //$scope.activeRecipe = null;
-
   // $scope.showRecipe = function (recipe) {
   //   console.log('> Show Recipe');
   //   $scope.activeRecipe = recipe;
