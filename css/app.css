@@ -15,7 +15,8 @@ body {
 .nav, .pagination, .panel-title a { cursor: pointer; }
 
 .main-container {
-  padding-top: 80px;
+  padding-top: 30px;
+  border-top: 50px solid #8069BF;
 }
 
 .jumbotron {
