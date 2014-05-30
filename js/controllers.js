@@ -80,7 +80,7 @@ angular.module('marg.controllers', [])
 
 }])
 .controller('aboutCtrl', ['$scope', function ($scope) {
-
+ // TODO: Does this need a controller?
 }])
 .controller('singleCtrl', ['$scope', '$routeParams', 'Margarita', function ($scope, $routeParams, Margarita) {
   console.log('Marg ID: ' + $routeParams.id);
@@ -114,6 +114,11 @@ angular.module('marg.controllers', [])
 
   $scope.createMargarita = function (margarita) {
     // TODO: Create it
+  }
+
+  $scope.editMargarita = function (margarita) {
+    // TODO: This should start editing, it needs a separate save function though.
+    // Potentially use the create form but change the action button?
   }
 
   $scope.deleteMargarita = function (margarita) {
