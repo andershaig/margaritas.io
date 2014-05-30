@@ -43,8 +43,8 @@
         <div class="panel-body">
           <ul class="admin-list list-unstyled">
             <li class="admin-list-item clearfix" ng-repeat="margarita in margaritas.models track by margarita.id">
-              <span class="marg-title">{{margarita.title}}</span>
-              <span class="marg-actions pull-right">
+              <span class="admin-marg-title">{{margarita.title}}</span>
+              <span class="admin-marg-actions pull-right">
                 <button role="button" class="btn btn-default btn-sm" ng-click="editMargarita(margarita)">Edit</button>
                 <button role="button" class="btn btn-danger btn-sm" ng-click="deleteMargarita(margarita)">Delete</button>
               </span>
