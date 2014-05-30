@@ -96,6 +96,25 @@ body {
   padding:20px 30px;
 }
 
+/* Admin */
+.admin-list {
+
+}
+
+.admin-list-item {
+  display:block;
+  padding:5px 0;
+  border-bottom:1px solid #EEE;
+}
+
+.marg-title {
+  line-height:30px;
+}
+
+.marg-actions {
+
+}
+
 footer {
   background-color: #FFF;
   border:none;

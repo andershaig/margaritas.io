@@ -112,6 +112,14 @@ angular.module('marg.controllers', [])
 }])
 .controller('adminCtrl', ['$scope', function ($scope) {
 
+  $scope.createMargarita = function (margarita) {
+    // TODO: Create it
+  }
+
+  $scope.deleteMargarita = function (margarita) {
+    // TODO: Delete it
+  }
+
 }])
 .controller('accountCtrl', ['$scope', function ($scope) {
 
