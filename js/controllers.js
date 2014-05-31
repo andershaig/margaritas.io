@@ -110,19 +110,46 @@ angular.module('marg.controllers', [])
 
 
 }])
-.controller('adminCtrl', ['$scope', function ($scope) {
+.controller('adminCtrl', ['$scope', 'Margarita', function ($scope, Margarita) {
+  var handleError = function (marg, error) {
+    console.log('Something went wrong when trying to modify the object, with error code: ' + error.description);
+  }
 
-  $scope.createMargarita = function (margarita) {
-    // TODO: Create it
+  $scope.createMargarita = function (attrs) {
+    var margarita = new Margarita;
+        attrs.rating = 0;
+        attrs.createdBy = $scope.currentUser;
+        margarita.save(attrs, {
+          success: function (marg) {
+            // Execute any logic that should take place after the object is saved.
+            console.log('New object created with objectId: ' + marg.id);
+            $scope.margaritas.add(marg);
+            $scope.$apply();
+          },
+          error: handleError
+        });;
   }
 
   $scope.editMargarita = function (margarita) {
     // TODO: This should start editing, it needs a separate save function though.
     // Potentially use the create form but change the action button?
+    margarita.save(null, {
+      success: function (marg) {
+        // Execute any logic that should take place after the object is saved.
+        console.log('Objected updated with objectId: ' + marg.id);
+        $scope.apply();
+      },
+      error: handleError
+    });
   }
 
   $scope.deleteMargarita = function (margarita) {
-    margarita.delete();
+    margarita.destroy({
+      success: function (marg) {
+        console.log('The object was deleted from the Parse Cloud.');
+      },
+      error: handleError
+    });
   }
 
 }])
