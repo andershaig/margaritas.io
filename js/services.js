@@ -35,20 +35,42 @@ factory('Margarita', ['Helpers', function (Helpers) {
   var Margarita = Parse.Object.extend('Margarita', {
     // Instance Methods
     save: function () {
-      // return ParseQuery(obj, {
-      //   functionToCall: 'save',
-      //   params: [null]
-      // });
+      this.save(null, {
+        success: function (marg) {
+          // Execute any logic that should take place after the object is saved.
+          console.log('New object created with objectId: ' + marg.id);
+        },
+        error: function (marg, error) {
+          // Execute any logic that should take place if the save fails.
+          // error is a Parse.Error with an error code and description.
+          console.log('Failed to create new object, with error code: ' + error.description);
+        }
+      });
     },
     delete: function () {
-      // return ParseQuery(obj, {
-      //   functionToCall: 'destroy'
-      // });
+      this.destroy({
+        success: function (marg) {
+          console.log('The object was deleted from the Parse Cloud.');
+        },
+        error: function (marg, error) {
+          // The delete failed.
+          // error is a Parse.Error with an error code and description.
+          console.log('Failed to delete object, with error code: ' + error.description);
+        }
+      });
     },
     fetch: function () {
-      // return ParseQuery(obj, {
-      //   functionToCall: 'fetch'
-      // });
+      this.fetch({
+        success: function (marg) {
+          // The object was refreshed successfully.
+          console.log('Object with objectId: ' + marg.id + ' was fetched successfully.');
+        },
+        error: function (marg, error) {
+          // The object was not refreshed successfully.
+          // error is a Parse.Error with an error code and description.
+          console.log('Failed to fetch object, with error code: ' + error.description);
+        }
+      });
     },
     initialize: function (attrs, options) {
       // console.log('> Initialize function called');
