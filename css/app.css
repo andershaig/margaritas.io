@@ -10,6 +10,16 @@ body {
   background-color:transparent;
 }
 
+a {
+  color: #35A5AD;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #39B1BA;
+  text-decoration: underline;
+}
+
 .navbar-fixed-top {
   position: absolute;
 }
