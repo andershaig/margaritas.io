@@ -122,6 +122,7 @@ angular.module('marg.controllers', [])
     var margarita = new Margarita;
         attrs.rating = 0;
         attrs.createdBy = $scope.currentUser;
+        attrs.instructions = ['If using salt, place in a shallow dish. Moisten the rim of a rocks glass with a dampened paper towel, then dip in salt.', 'Fill the glass with ice; add tequila, lime juice, and Cointreau; and stir a few times until chilled. Serve immediately.'];
         margarita.save(attrs, {
           success: function (marg) {
             // Execute any logic that should take place after the object is saved.
@@ -160,7 +161,6 @@ angular.module('marg.controllers', [])
    */
   $scope.createIngredient = function (attrs) {
     var ingredient = new Ingredient;
-        attrs.rating = 0;
         attrs.createdBy = $scope.currentUser;
         ingredient.save(attrs, {
           success: function (ingred) {

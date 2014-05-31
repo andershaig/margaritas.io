@@ -39,7 +39,7 @@ config(['$routeProvider', function ($routeProvider) {
     redirectTo: '/'
   });
 }]).
-run(['$rootScope', '$location', '$q', 'MargUser', 'MargaritaCollection', function ($scope, $location, $q, MargUser, MargaritaCollection) {
+run(['$rootScope', '$location', '$q', 'MargUser', 'MargaritaCollection', 'IngredientCollection', function ($scope, $location, $q, MargUser, MargaritaCollection, IngredientCollection) {
   Parse.initialize("xTwk4RNMtDgUU4D9wE2li0AyicN8l3yy4U80gqqn", "9joElVWS65tA2L5y8MKFTfQQCUrqDYqDAxTwXZeE");
 
   // TEMP: Debugging
@@ -77,9 +77,9 @@ run(['$rootScope', '$location', '$q', 'MargUser', 'MargaritaCollection', functio
 
       $scope.$apply();
 
-      collection.each( function (object) {
-        console.log(object);
-      });
+      // collection.each( function (object) {
+      //   console.log(object);
+      // });
     },
     error: function (collection, error) {
       console.log('> Ingredient collection could not be loaded.');

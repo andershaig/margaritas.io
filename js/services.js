@@ -21,24 +21,6 @@ factory('MargUser', [ function () {
   return User;
 }]).
 
-factory('Instruction', ['Helpers', function (Helpers) {
-  var Instruction = Parse.Object.extend('Instruction', {
-    // Instance Methods
-    initialize: function (attrs, options) {
-      // console.log('> Initialize function called');
-    }
-  }, {
-    // Class Methods
-  });
-
-  // Expose attributes get and set
-  var fields = ['instruction'];
-
-  Helpers.exposeAttributes(Instruction, fields);
-
-  return Instruction;
-}]).
-
 factory('IngredientCollection', ['Ingredient', function (Ingredient) {
   // Collection of "Ingredient" objects
   var IngredientCollection = Parse.Collection.extend({
@@ -87,7 +69,7 @@ factory('Margarita', ['Helpers', function (Helpers) {
   });
 
   // Expose attributes get and set
-  var fields = ['createdBy', 'title', 'description', 'rating'];
+  var fields = ['createdBy', 'title', 'description', 'instructions', 'rating'];
 
   Helpers.exposeAttributes(Margarita, fields);
 
