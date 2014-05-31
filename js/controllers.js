@@ -110,7 +110,7 @@ angular.module('marg.controllers', [])
 
 
 }])
-.controller('adminCtrl', ['$scope', 'Margarita', function ($scope, Margarita) {
+.controller('adminCtrl', ['$scope', 'Margarita', 'Ingredient', function ($scope, Margarita, Ingredient) {
   var handleError = function (marg, error) {
     console.log('Something went wrong when trying to modify the object, with error code: ' + error.description);
   }
