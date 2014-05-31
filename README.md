@@ -14,7 +14,8 @@
 * http://www.bootstrapcdn.com/
 
 ### MVP TODOs:
-* Build the single pages (and routing)
+* ~~Build the single pages (and routing)~~
+* Build an interface for adding and editing instructions in the admin.
 * Add loading indicator system
 * Look into (Parse) views as a way to filter a collection without messing with it too much
 * Move all code possible from the app start and into services
