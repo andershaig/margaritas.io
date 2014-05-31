@@ -26,7 +26,10 @@
               </div>
 
               <div class="form-group selected-ingredients">
-                <span class="label label-default" ng-repeat="ingredient in marg.ingredients">{{ingredient.name}}</span>
+                <span class="label label-primary" ng-repeat="ingredient in marg.ingredients">
+                  <span>{{ingredient.name}}</span>
+                  <span class="glyphicon glyphicon-remove" ng-click="removeIngredient(marg.ingredients, $index)"></span>
+                </span>
               </div>
 
               <div class="form-group">

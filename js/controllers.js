@@ -160,7 +160,7 @@ angular.module('marg.controllers', [])
    * Ingredients
    */
   Array.prototype.pushUnique = function (item) {
-    if(this.indexOf(item) == -1) {
+    if (this.indexOf(item) == -1) {
       this.push(item);
       return true;
     }
@@ -173,6 +173,10 @@ angular.module('marg.controllers', [])
   $scope.addIngredient = function (ingredient) {
     $scope.marg.ingredients.pushUnique(ingredient);
     $scope.selected = '';
+  }
+
+  $scope.removeIngredient = function (array, index) {
+    array.splice(index, 1);
   }
 
   $scope.createIngredient = function (attrs) {
