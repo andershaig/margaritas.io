@@ -55,7 +55,7 @@ run(['$rootScope', '$location', '$q', 'MargUser', 'MargaritaCollection', functio
 
   $scope.margaritas.fetch({
     success: function (collection) {
-      console.log('> The collection was retrieved.');
+      console.log('> Margarita collection was loaded.');
 
       $scope.$apply();
 
@@ -64,7 +64,25 @@ run(['$rootScope', '$location', '$q', 'MargUser', 'MargaritaCollection', functio
       // });
     },
     error: function (collection, error) {
-      console.log('> The collection could not be retrieved.');
+      console.log('> Margarita collection could not be loaded.');
+    }
+  });
+
+  // Load Ingredients
+  $scope.ingredients = new IngredientCollection();
+
+  $scope.ingredients.fetch({
+    success: function (collection) {
+      console.log('> Ingredient collection was loaded.');
+
+      $scope.$apply();
+
+      collection.each( function (object) {
+        console.log(object);
+      });
+    },
+    error: function (collection, error) {
+      console.log('> Ingredient collection could not be loaded.');
     }
   });
 

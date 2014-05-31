@@ -21,6 +21,51 @@ factory('MargUser', [ function () {
   return User;
 }]).
 
+factory('Instruction', ['Helpers', function (Helpers) {
+  var Instruction = Parse.Object.extend('Instruction', {
+    // Instance Methods
+    initialize: function (attrs, options) {
+      // console.log('> Initialize function called');
+    }
+  }, {
+    // Class Methods
+  });
+
+  // Expose attributes get and set
+  var fields = ['instruction'];
+
+  Helpers.exposeAttributes(Instruction, fields);
+
+  return Instruction;
+}]).
+
+factory('IngredientCollection', ['Ingredient', function (Ingredient) {
+  // Collection of "Ingredient" objects
+  var IngredientCollection = Parse.Collection.extend({
+    model: Ingredient
+  });
+
+  return IngredientCollection;
+}]).
+
+factory('Ingredient', ['Helpers', function (Helpers) {
+  var Ingredient = Parse.Object.extend('Ingredient', {
+    // Instance Methods
+    initialize: function (attrs, options) {
+      // console.log('> Initialize function called');
+    }
+  }, {
+    // Class Methods
+  });
+
+  // Expose attributes get and set
+  var fields = ['name'];
+
+  Helpers.exposeAttributes(Ingredient, fields);
+
+  return Ingredient;
+}]).
+
 factory('MargaritaCollection', ['Margarita', function (Margarita) {
   // Collection of "Margarita" objects
   var MargaritaCollection = Parse.Collection.extend({
@@ -82,8 +127,4 @@ factory('Helpers', [ function () {
       }
     }
   };
-}]).
-
-factory('Placeholder', ['$scope', function ($scope) {
-  // Placeholder
 }]);

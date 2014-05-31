@@ -115,6 +115,9 @@ angular.module('marg.controllers', [])
     console.log('Something went wrong when trying to modify the object, with error code: ' + error.description);
   }
 
+  /*
+   * Margaritas
+   */
   $scope.createMargarita = function (attrs) {
     var margarita = new Margarita;
         attrs.rating = 0;
@@ -146,6 +149,46 @@ angular.module('marg.controllers', [])
   $scope.deleteMargarita = function (margarita) {
     margarita.destroy({
       success: function (marg) {
+        console.log('The object was deleted from the Parse Cloud.');
+      },
+      error: handleError
+    });
+  }
+
+  /*
+   * Ingredients
+   */
+  $scope.createIngredient = function (attrs) {
+    var ingredient = new Ingredient;
+        attrs.rating = 0;
+        attrs.createdBy = $scope.currentUser;
+        ingredient.save(attrs, {
+          success: function (ingred) {
+            // Execute any logic that should take place after the object is saved.
+            console.log('New object created with objectId: ' + ingred.id);
+            $scope.ingredients.add(ingred);
+            $scope.$apply();
+          },
+          error: handleError
+        });;
+  }
+
+  $scope.editIngredient = function (ingredient) {
+    // TODO: This should start editing, it needs a separate save function though.
+    // Potentially use the create form but change the action button?
+    ingredient.save(null, {
+      success: function (ingred) {
+        // Execute any logic that should take place after the object is saved.
+        console.log('Objected updated with objectId: ' + ingred.id);
+        $scope.apply();
+      },
+      error: handleError
+    });
+  }
+
+  $scope.deleteIngredient = function (ingredient) {
+    ingredient.destroy({
+      success: function (ingred) {
         console.log('The object was deleted from the Parse Cloud.');
       },
       error: handleError

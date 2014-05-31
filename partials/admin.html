@@ -1,55 +1,100 @@
 <div class="main-container">
   <div class="container">
-    <div class="col-sm-6 col-md-6 col-lg-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">New Margarita</h3>
+    <!-- Margaritas -->
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">New Margarita</h3>
+          </div>
+
+          <div class="panel-body clearfix">
+            <form role="form">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" ng-model="marg.title" class="form-control" id="title" placeholder="Title">
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" ng-model="marg.description" class="form-control" id="description" placeholder="Description">
+              </div>
+
+              <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+                <div>Placeholder</div>
+              </div>
+
+              <div class="form-group">
+                <label for="instructions">Instructions</label>
+                <div>Placeholder</div>
+              </div>
+
+              <button type="submit" class="btn btn-primary pull-right" ng-click="createMargarita(marg)">Create</button>
+            </form>
+          </div>
         </div>
+      </div>
 
-        <div class="panel-body clearfix">
-          <form role="form">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" ng-model="marg.title" class="form-control" id="title" placeholder="Title">
-            </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Margaritas</h3>
+          </div>
 
-            <div class="form-group">
-              <label for="description">Description</label>
-              <input type="text" ng-model="marg.description" class="form-control" id="description" placeholder="Description">
-            </div>
-
-            <div class="form-group">
-              <label for="ingredients">Ingredients</label>
-              <div>Placeholder</div>
-            </div>
-
-            <div class="form-group">
-              <label for="instructions">Instructions</label>
-              <div>Placeholder</div>
-            </div>
-
-            <button type="submit" class="btn btn-primary pull-right" ng-click="createMargarita(marg)">Create</button>
-          </form>
+          <div class="panel-body">
+            <ul class="admin-list list-unstyled">
+              <li class="admin-list-item clearfix" ng-repeat="margarita in margaritas.models track by margarita.id">
+                <span class="admin-item-title">{{margarita.title}}</span>
+                <span class="admin-item-actions pull-right">
+                  <button role="button" class="btn btn-default btn-sm" ng-click="editMargarita(margarita)">Edit</button>
+                  <button role="button" class="btn btn-danger btn-sm" ng-click="deleteMargarita(margarita)">Delete</button>
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-6 col-md-6 col-lg-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Margaritas</h3>
-        </div>
+    <!-- Ingredients -->
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">New Ingredient</h3>
+          </div>
 
-        <div class="panel-body">
-          <ul class="admin-list list-unstyled">
-            <li class="admin-list-item clearfix" ng-repeat="margarita in margaritas.models track by margarita.id">
-              <span class="admin-marg-title">{{margarita.title}}</span>
-              <span class="admin-marg-actions pull-right">
-                <button role="button" class="btn btn-default btn-sm" ng-click="editMargarita(margarita)">Edit</button>
-                <button role="button" class="btn btn-danger btn-sm" ng-click="deleteMargarita(margarita)">Delete</button>
-              </span>
-            </li>
-          </ul>
+          <div class="panel-body clearfix">
+            <form role="form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" ng-model="form.name" class="form-control" id="name" placeholder="Name">
+              </div>
+
+              <button type="submit" class="btn btn-primary pull-right" ng-click="createIngredient(form)">Create</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Ingredients</h3>
+          </div>
+
+          <div class="panel-body">
+            <ul class="admin-list list-unstyled">
+              <li class="admin-list-item clearfix" ng-repeat="ingredient in ingredients.models track by ingredient.id">
+                <span class="admin-item-title">{{ingredient.name}}</span>
+                <span class="admin-item-actions pull-right">
+                  <button role="button" class="btn btn-default btn-sm" ng-click="editIngredient(ingredient)">Edit</button>
+                  <button role="button" class="btn btn-danger btn-sm" ng-click="deleteIngredient(ingredient)">Delete</button>
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
