@@ -159,6 +159,22 @@ angular.module('marg.controllers', [])
   /*
    * Ingredients
    */
+  Array.prototype.pushUnique = function (item) {
+    if(this.indexOf(item) == -1) {
+      this.push(item);
+      return true;
+    }
+    return false;
+  }
+
+  $scope.marg = {};
+  $scope.marg.ingredients = [];
+
+  $scope.addIngredient = function (ingredient) {
+    $scope.marg.ingredients.pushUnique(ingredient);
+    $scope.selected = '';
+  }
+
   $scope.createIngredient = function (attrs) {
     var ingredient = new Ingredient;
         attrs.createdBy = $scope.currentUser;

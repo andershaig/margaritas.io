@@ -9,6 +9,7 @@ angular.module('marg', [
   'marg.directives',
   'marg.controllers'
 ]).
+
 config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'partials/home.html',
@@ -139,6 +140,7 @@ run(['$rootScope', '$location', '$q', 'MargUser', 'MargaritaCollection', 'Ingred
       xfbml: true
     });
   };
+
   (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}

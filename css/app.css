@@ -125,6 +125,10 @@ a:hover {
 }
 
 /* Admin */
+.selected-ingredients .label {
+  margin:0 2px;
+}
+
 .admin-list {
 
 }
