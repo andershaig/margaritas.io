@@ -122,7 +122,7 @@ angular.module('marg.controllers', [])
   }
 
   $scope.deleteMargarita = function (margarita) {
-    // TODO: Delete it
+    margarita.delete();
   }
 
 }])

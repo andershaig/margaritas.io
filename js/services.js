@@ -34,7 +34,7 @@ factory('Margarita', ['Helpers', function (Helpers) {
 
   var Margarita = Parse.Object.extend('Margarita', {
     // Instance Methods
-    save: function () {
+    stash: function () {
       this.save(null, {
         success: function (marg) {
           // Execute any logic that should take place after the object is saved.
@@ -59,7 +59,7 @@ factory('Margarita', ['Helpers', function (Helpers) {
         }
       });
     },
-    fetch: function () {
+    update: function () {
       this.fetch({
         success: function (marg) {
           // The object was refreshed successfully.
