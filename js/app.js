@@ -16,6 +16,11 @@ config(['$routeProvider', function ($routeProvider) {
     controller: 'homeCtrl'
   });
 
+  $routeProvider.when('/search', {
+    templateUrl: 'partials/search.html',
+    controller: 'searchCtrl'
+  });
+
   $routeProvider.when('/about', {
     templateUrl: 'partials/about.html',
     controller: 'aboutCtrl'

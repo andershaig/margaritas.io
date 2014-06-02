@@ -216,6 +216,9 @@ angular.module('marg.controllers', [])
   }
 
 }])
+.controller('searchCtrl', ['$scope', function ($scope) {
+  
+}])
 .controller('accountCtrl', ['$scope', function ($scope) {
 
 }]);
