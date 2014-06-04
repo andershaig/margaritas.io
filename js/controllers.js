@@ -181,16 +181,16 @@ angular.module('marg.controllers', [])
 
   $scope.createIngredient = function (attrs) {
     var ingredient = new Ingredient;
-        attrs.createdBy = $scope.currentUser;
-        ingredient.save(attrs, {
-          success: function (ingred) {
-            // Execute any logic that should take place after the object is saved.
-            console.log('New object created with objectId: ' + ingred.id);
-            $scope.ingredients.add(ingred);
-            $scope.$apply();
-          },
-          error: handleError
-        });;
+      attrs.createdBy = $scope.currentUser;
+      ingredient.save(attrs, {
+        success: function (ingred) {
+          // Execute any logic that should take place after the object is saved.
+          console.log('New object created with objectId: ' + ingred.id);
+          $scope.ingredients.add(ingred);
+          $scope.$apply();
+        },
+        error: handleError
+      });
   }
 
   $scope.editIngredient = function (ingredient) {
@@ -217,7 +217,7 @@ angular.module('marg.controllers', [])
 
 }])
 .controller('searchCtrl', ['$scope', function ($scope) {
-  
+
 }])
 .controller('accountCtrl', ['$scope', function ($scope) {
 

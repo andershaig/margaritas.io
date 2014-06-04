@@ -9,7 +9,7 @@
           </div>
 
           <div class="panel-body clearfix">
-            <form role="form">
+            <form class="form-horizontal" role="form">
               <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" ng-model="marg.title" class="form-control" id="title" placeholder="Title">
@@ -26,10 +26,16 @@
               </div>
 
               <div class="form-group selected-ingredients">
-                <span class="label label-primary" ng-repeat="ingredient in marg.ingredients">
-                  <span>{{ingredient.name}}</span>
-                  <span class="glyphicon glyphicon-remove" ng-click="removeIngredient(marg.ingredients, $index)"></span>
-                </span>
+                <ul class="admin-list list-unstyled">
+                  <li class="admin-list-item clearfix" ng-repeat="ingredient in marg.ingredients">
+                    <span class="admin-item-title">{{ingredient.name}}</span>
+                    <span class="admin-item-actions pull-right">
+                      <input type="text" ng-model="ingredient.amount" class="form-control" id="amount" placeholder="Amount">
+                      <input type="text" ng-model="ingredient.unit" class="form-control" id="unit" placeholder="Unit">
+                      <button role="button" class="close admin-list-close" ng-click="removeIngredient(marg.ingredients, $index)">&times;</button>
+                    </span>
+                  </li>
+                </ul>
               </div>
 
               <div class="form-group">

@@ -147,6 +147,16 @@ a:hover {
 
 }
 
+.admin-item-actions .form-control {
+  width:100px;
+  display:inline-block;
+}
+
+button.admin-list-close {
+  padding: 6px 10px;
+  float: none;
+}
+
 /* Footer */
 footer {
   position: absolute;
