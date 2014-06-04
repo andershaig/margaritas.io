@@ -120,18 +120,18 @@ angular.module('marg.controllers', [])
    */
   $scope.createMargarita = function (attrs) {
     var margarita = new Margarita;
-        attrs.rating = 0;
-        attrs.createdBy = $scope.currentUser;
-        attrs.instructions = ['If using salt, place in a shallow dish. Moisten the rim of a rocks glass with a dampened paper towel, then dip in salt.', 'Fill the glass with ice; add tequila, lime juice, and Cointreau; and stir a few times until chilled. Serve immediately.'];
-        margarita.save(attrs, {
-          success: function (marg) {
-            // Execute any logic that should take place after the object is saved.
-            console.log('New object created with objectId: ' + marg.id);
-            $scope.margaritas.add(marg);
-            $scope.$apply();
-          },
-          error: handleError
-        });;
+    attrs.rating = 0;
+    attrs.createdBy = $scope.currentUser;
+
+    margarita.save(attrs, {
+      success: function (marg) {
+        // Execute any logic that should take place after the object is saved.
+        console.log('New object created with objectId: ' + marg.id);
+        $scope.margaritas.add(marg);
+        $scope.$apply();
+      },
+      error: handleError
+    });;
   }
 
   $scope.editMargarita = function (margarita) {
@@ -169,9 +169,16 @@ angular.module('marg.controllers', [])
 
   $scope.marg = {};
   $scope.marg.ingredients = [];
+  $scope.marg.instructions = [];
 
   $scope.addIngredient = function (ingredient) {
-    $scope.marg.ingredients.pushUnique(ingredient);
+    var obj = {
+      ingredient: ingredient,
+      amount: null,
+      unit: null
+    }
+
+    $scope.marg.ingredients.pushUnique(obj);
     $scope.selected = '';
   }
 
@@ -181,16 +188,16 @@ angular.module('marg.controllers', [])
 
   $scope.createIngredient = function (attrs) {
     var ingredient = new Ingredient;
-      attrs.createdBy = $scope.currentUser;
-      ingredient.save(attrs, {
-        success: function (ingred) {
-          // Execute any logic that should take place after the object is saved.
-          console.log('New object created with objectId: ' + ingred.id);
-          $scope.ingredients.add(ingred);
-          $scope.$apply();
-        },
-        error: handleError
-      });
+    attrs.createdBy = $scope.currentUser;
+    ingredient.save(attrs, {
+      success: function (ingred) {
+        // Execute any logic that should take place after the object is saved.
+        console.log('New object created with objectId: ' + ingred.id);
+        $scope.ingredients.add(ingred);
+        $scope.$apply();
+      },
+      error: handleError
+    });
   }
 
   $scope.editIngredient = function (ingredient) {
@@ -213,6 +220,15 @@ angular.module('marg.controllers', [])
       },
       error: handleError
     });
+  }
+
+  $scope.addInstruction = function (instruction) {
+    $scope.marg.instructions.pushUnique(instruction);
+    $scope.instruction = '';
+  }
+
+  $scope.removeInstruction = function (array, index) {
+    array.splice(index, 1);
   }
 
 }])
