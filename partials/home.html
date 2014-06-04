@@ -11,7 +11,7 @@
 <div class="container">
   <!-- Recipe Grid -->
   <div class="row">
-    <div class="col-sm-6 col-md-4 col-lg-4" ng-repeat="margarita in margaritas.models track by margarita.id">
+    <div class="col-sm-6 col-md-4 col-lg-4" ng-repeat="margarita in margaritas.models | limitTo: 3 track by margarita.id">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">
