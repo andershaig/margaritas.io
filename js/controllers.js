@@ -172,14 +172,14 @@ angular.module('marg.controllers', [])
   $scope.marg.instructions = [];
 
   $scope.addIngredient = function (ingredient) {
-    var obj = {
-      ingredient: ingredient,
+    var ingredientEntry = {
+      pointer: ingredient,
       amount: null,
       unit: null
     }
 
-    $scope.marg.ingredients.pushUnique(obj);
-    $scope.selected = '';
+    $scope.marg.ingredients.pushUnique(ingredientEntry);
+    $scope.ingredient = '';
   }
 
   $scope.removeIngredient = function (array, index) {

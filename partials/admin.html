@@ -22,13 +22,13 @@
 
               <div class="form-group">
                 <label for="ingredients">Ingredients</label>
-                <input type="text" ng-model="selected" class="form-control" typeahead="ingredient.name for ingredient in ingredients.models | filter:{name:$viewValue}" typeahead-editable="false" typeahead-on-select="addIngredient($item)" placeholder="Ingredient">
+                <input type="text" ng-model="ingredient" class="form-control" typeahead="ingredient.name for ingredient in ingredients.models | filter:{name:$viewValue}" typeahead-editable="false" typeahead-on-select="addIngredient($item)" placeholder="Ingredient">
               </div>
 
               <div class="form-group selected-ingredients">
                 <ul class="admin-list list-unstyled">
                   <li class="admin-list-item clearfix" ng-repeat="ingredient in marg.ingredients">
-                    <span class="admin-item-title">{{ingredient.ingredient.name}}</span>
+                    <span class="admin-item-title">{{ingredient.pointer.name}}</span>
                     <span class="admin-item-actions pull-right">
                       <input type="text" ng-model="marg.ingredients[$index].amount" class="form-control" id="amount" placeholder="Amount">
                       <input type="text" ng-model="marg.ingredients[$index].unit" class="form-control" id="unit" placeholder="Unit">
