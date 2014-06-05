@@ -23,13 +23,13 @@
             <sup>1</sup>&frasl;<sub>10</sub>
 
             -->
-            <li class="ingredient">
-              <span class="ingredient-amount">1 &frac12;</span>
-              <span class="ingredient-unit">oz</span>
-              <span class="ingredient-name">Tequila</span>
+            <li class="ingredient" ng-repeat="ingredient in activeMarg.ingredients">
+              <span class="ingredient-amount">{{ingredient.amount}}</span>
+              <span class="ingredient-unit">{{ingredient.unit}}</span>
+              <span class="ingredient-name">{{ingredient.pointer.name}}</span>
             </li>
 
-            <li class="ingredient">
+            <!-- <li class="ingredient">
               <span class="ingredient-amount">&frac12;</span>
               <span class="ingredient-unit">oz</span>
               <span class="ingredient-name">Cointreau</span>
@@ -45,7 +45,7 @@
               <span class="ingredient-amount">1</span>
               <span class="ingredient-unit">oz</span>
               <span class="ingredient-name">Lime Juice</span>
-            </li>
+            </li> -->
           </ul>
         </div>
 

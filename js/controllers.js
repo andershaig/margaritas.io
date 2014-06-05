@@ -92,13 +92,13 @@ angular.module('marg.controllers', [])
   } else {
     var query = new Parse.Query(Margarita);
     query.get($routeParams.id, {
-      success: function(marg) {
+      success: function (marg) {
         // The object was retrieved successfully.
         $scope.activeMarg = marg;
         $scope.$apply();
         console.log($scope.activeMarg);
       },
-      error: function(object, error) {
+      error: function (object, error) {
         // The object was not retrieved successfully.
         // error is a Parse.Error with an error code and description.
         console.log('> Parse.Query Error');
