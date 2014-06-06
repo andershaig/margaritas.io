@@ -130,7 +130,7 @@ angular.module('marg.controllers', [])
           console.log('Objected updated with objectId: ' + marg.id);
           $scope.marg = {}; // Clear Form
           $scope.editingMargarita = false; // Stop Editing
-          $scope.apply();
+          $scope.$apply();
         },
         error: handleError
       });

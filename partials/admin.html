@@ -41,7 +41,7 @@
               <div class="form-group">
                 <label for="instructions">Instructions</label>
                 <div class="input-group">
-                  <input type="text" ng-model="instruction" class="form-control" id="instruction" placeholder="Instructions">
+                  <input type="text" ng-model="instruction" ng-enter="addInstruction(instruction)" class="form-control" id="instruction" placeholder="Instructions">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button" ng-click="addInstruction(instruction)">Add</button>
                   </span>
