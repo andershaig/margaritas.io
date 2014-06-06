@@ -69,7 +69,7 @@ factory('Margarita', ['Helpers', function (Helpers) {
   });
 
   // Expose attributes get and set
-  var fields = ['createdBy', 'title', 'description', 'instructions', 'rating'];
+  var fields = ['createdBy', 'title', 'description', 'ingredients', 'instructions', 'rating'];
 
   Helpers.exposeAttributes(Margarita, fields);
 

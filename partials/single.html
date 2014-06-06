@@ -10,42 +10,11 @@
 
         <div class="single-ingredients">
           <ul class="ingredient-list">
-            <!--
-
-            1/4 => &frac14;
-            1/2 => &frac12;
-            3/4 => &frac34;
-
-            1/3 => &frac13;
-            2/3 => &frac23;
-
-            Maybe with some CSS:
-            <sup>1</sup>&frasl;<sub>10</sub>
-
-            -->
             <li class="ingredient" ng-repeat="ingredient in activeMarg.ingredients">
               <span class="ingredient-amount">{{ingredient.amount}}</span>
               <span class="ingredient-unit">{{ingredient.unit}}</span>
               <span class="ingredient-name">{{ingredient.pointer.name}}</span>
             </li>
-
-            <!-- <li class="ingredient">
-              <span class="ingredient-amount">&frac12;</span>
-              <span class="ingredient-unit">oz</span>
-              <span class="ingredient-name">Cointreau</span>
-            </li>
-
-            <li class="ingredient">
-              <span class="ingredient-amount">&frac12;</span>
-              <span class="ingredient-unit">oz</span>
-              <span class="ingredient-name">Gran Mariner</span>
-            </li>
-
-            <li class="ingredient">
-              <span class="ingredient-amount">1</span>
-              <span class="ingredient-unit">oz</span>
-              <span class="ingredient-name">Lime Juice</span>
-            </li> -->
           </ul>
         </div>
 

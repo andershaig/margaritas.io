@@ -27,7 +27,7 @@
 
               <div class="form-group selected-ingredients">
                 <ul class="admin-list list-unstyled">
-                  <li class="admin-list-item clearfix" ng-repeat="ingredient in marg.ingredients">
+                  <li class="admin-list-item clearfix" ng-repeat="ingredient in marg.ingredients track by $index">
                     <span class="admin-item-title">{{ingredient.pointer.name}}</span>
                     <span class="admin-item-actions pull-right">
                       <input type="text" ng-model="marg.ingredients[$index].amount" class="form-control" id="amount" placeholder="Amount">
