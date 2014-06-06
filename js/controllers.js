@@ -111,40 +111,51 @@ angular.module('marg.controllers', [])
 
 }])
 .controller('adminCtrl', ['$scope', 'Margarita', 'Ingredient', function ($scope, Margarita, Ingredient) {
-  var handleError = function (marg, error) {
+  var handleError = function (obj, error) {
     console.log('Something went wrong when trying to modify the object, with error code: ' + error.description);
   }
 
   /*
    * Margaritas
    */
-  $scope.createMargarita = function (attrs) {
-    var margarita = new Margarita;
-    attrs.rating = 0;
-    attrs.createdBy = $scope.currentUser;
 
-    margarita.save(attrs, {
-      success: function (marg) {
-        // Execute any logic that should take place after the object is saved.
-        console.log('New object created with objectId: ' + marg.id);
-        $scope.margaritas.add(marg);
-        $scope.$apply();
-      },
-      error: handleError
-    });;
+  $scope.editingMargarita = false;
+
+  $scope.saveMargarita = function (attrs) {
+    if ($scope.editingMargarita) {
+      var margarita = attrs;
+      margarita.save(null, {
+        success: function (marg) {
+          // Execute any logic that should take place after the object is saved.
+          console.log('Objected updated with objectId: ' + marg.id);
+          $scope.marg = {}; // Clear Form
+          $scope.editingMargarita = false; // Stop Editing
+          $scope.apply();
+        },
+        error: handleError
+      });
+    } else {
+      var margarita = new Margarita;
+      attrs.rating = 0;
+      attrs.createdBy = $scope.currentUser;
+
+      margarita.save(attrs, {
+        success: function (marg) {
+          // Execute any logic that should take place after the object is saved.
+          console.log('New object created with objectId: ' + marg.id);
+          $scope.margaritas.add(marg);
+          $scope.marg = {}; // Clear Form
+          $scope.editingMargarita = false; // Stop Editing
+          $scope.$apply();
+        },
+        error: handleError
+      });
+    }
   }
 
   $scope.editMargarita = function (margarita) {
-    // TODO: This should start editing, it needs a separate save function though.
-    // Potentially use the create form but change the action button?
-    margarita.save(null, {
-      success: function (marg) {
-        // Execute any logic that should take place after the object is saved.
-        console.log('Objected updated with objectId: ' + marg.id);
-        $scope.apply();
-      },
-      error: handleError
-    });
+    $scope.marg = margarita;
+    $scope.editingMargarita = true;
   }
 
   $scope.deleteMargarita = function (margarita) {
