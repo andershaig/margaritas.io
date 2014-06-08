@@ -26,6 +26,7 @@
 * Combine register and login modals
 * Add error checking / visible warnings to the modal to make sure it doesn't close
 if you haven't supplied all the info or supplied incorrect info.
+* Consider splitting the Sign Up / Login like http://codyhouse.co/demo/login-signup-modal-window/#0
 
 ### Roadmap:
 * Create a user system to allow rating / saving
