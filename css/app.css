@@ -78,8 +78,8 @@ main {
 }
 
 main.ng-enter {
-  -webkit-transform:translateY(-30px);
-  transform:translateY(-30px);
+  -webkit-transform:translateY(-20px);
+  transform:translateY(-20px);
   opacity: 0;
   transition-duration: 400ms;
   -webkit-transition-duration: 400ms;

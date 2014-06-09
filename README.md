@@ -15,18 +15,17 @@
 
 ### MVP TODOs:
 * ~~Build the single pages (and routing)~~
-* Build an interface for adding and editing instructions in the admin.
-* Add loading indicator system
+* ~~Build an interface for adding and editing instructions in the admin.~~
+* ~~Add loading indicator system~~
 * Look into (Parse) views as a way to filter a collection without messing with it too much
 * Move all code possible from the app start and into services
 * Build the proper relational database structure
 * Clean up the design
 * Add search / sort / browse pages
 * Fix the tiny nav menu slideout / mobile view
-* Combine register and login modals
+* Combine Sign Up / Login modals like http://codyhouse.co/demo/login-signup-modal-window/#0
 * Add error checking / visible warnings to the modal to make sure it doesn't close
 if you haven't supplied all the info or supplied incorrect info.
-* Consider splitting the Sign Up / Login like http://codyhouse.co/demo/login-signup-modal-window/#0
 
 ### Roadmap:
 * Create a user system to allow rating / saving

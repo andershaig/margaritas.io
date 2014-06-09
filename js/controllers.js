@@ -115,6 +115,18 @@ angular.module('marg.controllers', [])
     console.log('Something went wrong when trying to modify the object, with error code: ' + error.description);
   }
 
+  Array.prototype.pushUnique = function (item) {
+    if (this.indexOf(item) == -1) {
+      this.push(item);
+      return true;
+    }
+    return false;
+  }
+
+  $scope.marg = {};
+  $scope.marg.ingredients = [];
+  $scope.marg.instructions = [];
+
   /*
    * Margaritas
    */
@@ -168,19 +180,21 @@ angular.module('marg.controllers', [])
   }
 
   /*
-   * Ingredients
+   * Instructions
    */
-  Array.prototype.pushUnique = function (item) {
-    if (this.indexOf(item) == -1) {
-      this.push(item);
-      return true;
-    }
-    return false;
+  $scope.addInstruction = function (instruction) {
+    $scope.marg.instructions.pushUnique(instruction);
+    $scope.instruction = '';
   }
 
-  $scope.marg = {};
-  $scope.marg.ingredients = [];
-  $scope.marg.instructions = [];
+  $scope.removeInstruction = function (array, index) {
+    array.splice(index, 1);
+  }
+
+  /*
+   * Ingredients
+   */
+  $scope.editingIngredient = false;
 
   $scope.addIngredient = function (ingredient) {
     var ingredientEntry = {
@@ -197,31 +211,37 @@ angular.module('marg.controllers', [])
     array.splice(index, 1);
   }
 
-  $scope.createIngredient = function (attrs) {
-    var ingredient = new Ingredient;
-    attrs.createdBy = $scope.currentUser;
-    ingredient.save(attrs, {
-      success: function (ingred) {
-        // Execute any logic that should take place after the object is saved.
-        console.log('New object created with objectId: ' + ingred.id);
-        $scope.ingredients.add(ingred);
-        $scope.$apply();
-      },
-      error: handleError
-    });
+  $scope.saveIngredient = function (attrs) {
+    if ($scope.editingIngredient) {
+      var ingredient = attrs;
+      ingredient.save(null, {
+        success: function (marg) {
+          // Execute any logic that should take place after the object is saved.
+          console.log('Objected updated with objectId: ' + marg.id);
+          $scope.ingred = {}; // Clear Form
+          $scope.editingIngredient = false; // Stop Editing
+          $scope.$apply();
+        },
+        error: handleError
+      });
+    } else {
+      var ingredient = new Ingredient;
+      attrs.createdBy = $scope.currentUser;
+      ingredient.save(attrs, {
+        success: function (ingred) {
+          // Execute any logic that should take place after the object is saved.
+          console.log('New object created with objectId: ' + ingred.id);
+          $scope.ingredients.add(ingred);
+          $scope.$apply();
+        },
+        error: handleError
+      });
+    }
   }
 
   $scope.editIngredient = function (ingredient) {
-    // TODO: This should start editing, it needs a separate save function though.
-    // Potentially use the create form but change the action button?
-    ingredient.save(null, {
-      success: function (ingred) {
-        // Execute any logic that should take place after the object is saved.
-        console.log('Objected updated with objectId: ' + ingred.id);
-        $scope.apply();
-      },
-      error: handleError
-    });
+    $scope.ingred = ingredient;
+    $scope.editingIngredient = true;
   }
 
   $scope.deleteIngredient = function (ingredient) {
@@ -231,15 +251,6 @@ angular.module('marg.controllers', [])
       },
       error: handleError
     });
-  }
-
-  $scope.addInstruction = function (instruction) {
-    $scope.marg.instructions.pushUnique(instruction);
-    $scope.instruction = '';
-  }
-
-  $scope.removeInstruction = function (array, index) {
-    array.splice(index, 1);
   }
 
 }])
