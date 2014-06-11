@@ -37,6 +37,16 @@ config(['$routeProvider', function ($routeProvider) {
     controller: 'adminCtrl'
   });
 
+  $routeProvider.when('/margaritas/create', {
+    templateUrl: 'partials/margarita-form.html',
+    controller: 'margaritaCtrl'
+  });
+
+  $routeProvider.when('/margaritas/edit/:id', {
+    templateUrl: 'partials/margarita-form.html',
+    controller: 'margaritaCtrl'
+  });
+
   $routeProvider.when('/margaritas/:id', {
     templateUrl: 'partials/single.html',
     controller: 'singleCtrl'

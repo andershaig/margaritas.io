@@ -107,10 +107,8 @@ angular.module('marg.controllers', [])
       }
     });
   }
-
-
 }])
-.controller('adminCtrl', ['$scope', 'Margarita', 'Ingredient', function ($scope, Margarita, Ingredient) {
+.controller('margaritaCtrl', ['$scope', '$routeParams', 'Margarita', 'Ingredient', function ($scope, $routeParams, Margarita, Ingredient) {
   var handleError = function (obj, error) {
     console.log('Something went wrong when trying to modify the object, with error code: ' + error.description);
   }
@@ -127,11 +125,68 @@ angular.module('marg.controllers', [])
   $scope.marg.ingredients = [];
   $scope.marg.instructions = [];
 
+  $scope.editingMargarita = false;
+
+  if ($routeParams.id) {
+    $scope.editingMargarita = true;
+
+    if ($scope.margaritas.length) {
+      $scope.marg = $scope.margaritas.get($routeParams.id);
+      console.log($scope.marg);
+    } else {
+      var query = new Parse.Query(Margarita);
+      query.get($routeParams.id, {
+        success: function (marg) {
+          // The object was retrieved successfully.
+          $scope.marg = marg;
+          $scope.$apply();
+          console.log($scope.marg);
+        },
+        error: function (object, error) {
+          // The object was not retrieved successfully.
+          // error is a Parse.Error with an error code and description.
+          console.log('> Parse.Query Error');
+          console.log(object);
+          console.log(error);
+        }
+      });
+    }
+  }
+
   /*
-   * Margaritas
+   * Instructions
+   */
+  $scope.addInstruction = function (instruction) {
+    $scope.marg.instructions.pushUnique(instruction);
+    $scope.instruction = '';
+  }
+
+  $scope.removeInstruction = function (array, index) {
+    array.splice(index, 1);
+  }
+
+  /*
+   * Ingredients
    */
 
-  $scope.editingMargarita = false;
+  $scope.addIngredient = function (ingredient) {
+    var ingredientEntry = {
+      pointer: ingredient,
+      amount: null,
+      unit: null
+    }
+
+    $scope.marg.ingredients.pushUnique(ingredientEntry);
+    $scope.ingredient = '';
+  }
+
+  $scope.removeIngredient = function (array, index) {
+    array.splice(index, 1);
+  }
+
+  /*
+   * Save
+   */
 
   $scope.saveMargarita = function (attrs) {
     if ($scope.editingMargarita) {
@@ -164,11 +219,15 @@ angular.module('marg.controllers', [])
       });
     }
   }
-
-  $scope.editMargarita = function (margarita) {
-    $scope.marg = margarita;
-    $scope.editingMargarita = true;
+}])
+.controller('adminCtrl', ['$scope', 'Margarita', 'Ingredient', function ($scope, Margarita, Ingredient) {
+  var handleError = function (obj, error) {
+    console.log('Something went wrong when trying to modify the object, with error code: ' + error.description);
   }
+
+  /*
+   * Margaritas
+   */
 
   $scope.deleteMargarita = function (margarita) {
     margarita.destroy({
@@ -180,36 +239,9 @@ angular.module('marg.controllers', [])
   }
 
   /*
-   * Instructions
-   */
-  $scope.addInstruction = function (instruction) {
-    $scope.marg.instructions.pushUnique(instruction);
-    $scope.instruction = '';
-  }
-
-  $scope.removeInstruction = function (array, index) {
-    array.splice(index, 1);
-  }
-
-  /*
    * Ingredients
    */
   $scope.editingIngredient = false;
-
-  $scope.addIngredient = function (ingredient) {
-    var ingredientEntry = {
-      pointer: ingredient,
-      amount: null,
-      unit: null
-    }
-
-    $scope.marg.ingredients.pushUnique(ingredientEntry);
-    $scope.ingredient = '';
-  }
-
-  $scope.removeIngredient = function (array, index) {
-    array.splice(index, 1);
-  }
 
   $scope.saveIngredient = function (attrs) {
     if ($scope.editingIngredient) {

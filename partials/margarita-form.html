@@ -1,0 +1,69 @@
+<div class="main-container">
+  <div class="container">
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Margarita Details</h3>
+        </div>
+
+        <div class="panel-body clearfix">
+          <form role="form">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" ng-model="marg.title" class="form-control" id="title" placeholder="Title">
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" ng-model="marg.description" class="form-control" id="description" placeholder="Description">
+            </div>
+
+            <div class="form-group">
+              <label for="ingredients">Ingredients</label>
+              <input type="text" ng-model="ingredient" class="form-control" typeahead="ingredient.name for ingredient in ingredients.models | filter:{name:$viewValue}" typeahead-editable="false" typeahead-on-select="addIngredient($item)" placeholder="Ingredient">
+            </div>
+
+            <div class="form-group selected-ingredients">
+              <ul class="admin-list list-unstyled">
+                <li class="admin-list-item clearfix" ng-repeat="ingredient in marg.ingredients track by $index">
+                  <span class="admin-item-title">{{ingredient.pointer.name}}</span>
+                  <span class="admin-item-actions pull-right">
+                    <input type="text" ng-model="marg.ingredients[$index].amount" class="form-control" id="amount" placeholder="Amount">
+                    <input type="text" ng-model="marg.ingredients[$index].unit" class="form-control" id="unit" placeholder="Unit">
+                    <button role="button" class="close admin-list-close" ng-click="removeIngredient(marg.ingredients, $index)">&times;</button>
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="form-group">
+              <label for="instructions">Instructions</label>
+              <div class="input-group">
+                <input type="text" ng-model="instruction" ng-enter="addInstruction(instruction)" class="form-control" id="instruction" placeholder="Instructions">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" ng-click="addInstruction(instruction)">Add</button>
+                </span>
+              </div><!-- /input-group -->
+
+            </div>
+
+            <div class="form-group">
+              <ul class="admin-list list-unstyled">
+                <li class="admin-list-item clearfix" ng-repeat="instruction in marg.instructions">
+                  <span class="admin-item-title">{{instruction}}</span>
+                  <span class="admin-item-actions pull-right">
+                    <button role="button" class="close admin-list-close" ng-click="removeInstruction(marg.instructions, $index)">&times;</button>
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <button type="submit" class="btn btn-primary pull-right" ng-click="saveMargarita(marg)">Save</button>
+          </form>
+
+          <div ng-show="debug">{{marg | json}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
