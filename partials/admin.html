@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="container">
-    <!-- Margaritas -->
     <div class="row">
+      <!-- Margaritas -->
       <div class="col-sm-6 col-md-6 col-lg-6">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -23,7 +23,30 @@
         </div>
       </div>
 
+      <!-- Ingredients -->
       <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">New Ingredient</h3>
+          </div>
+
+          <div class="panel-body clearfix">
+            <form role="form">
+              <div class="form-group">
+                <label for="name">Name</label>
+
+                <div class="input-group">
+                  <input type="text" ng-model="ingred.name" class="form-control" id="name" placeholder="Name">
+
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary pull-right" ng-click="saveIngredient(ingred)">Save</button>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Ingredients</h3>
@@ -39,28 +62,6 @@
                 </span>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Ingredients -->
-    <div class="row">
-      <div class="col-sm-6 col-md-6 col-lg-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">New Ingredient</h3>
-          </div>
-
-          <div class="panel-body clearfix">
-            <form role="form">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" ng-model="ingred.name" class="form-control" id="name" placeholder="Name">
-              </div>
-
-              <button type="submit" class="btn btn-primary pull-right" ng-click="saveIngredient(ingred)">Save</button>
-            </form>
           </div>
         </div>
       </div>
