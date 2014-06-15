@@ -33,3 +33,6 @@ if you haven't supplied all the info or supplied incorrect info.
   * Include a social login option as well.
 * Pictures of the Margaritas (removed for MVP)
 * More advanced shopping list calculation / recipe features?
+
+### Ideas:
+* Ability to embed a recipe so it can be used on other sites. Similar to http://www.foodfanatic.com/recipes/eggplant-sandwich-recipe/?
