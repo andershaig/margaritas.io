@@ -3,6 +3,9 @@
 /* Controllers */
 
 angular.module('marg.controllers', [])
+.controller('pageCtrl', ['$scope', function ($scope) {
+
+}])
 .controller('headerCtrl', ['$scope', '$modal', function ($scope, $modal) {
   $scope.register = function () {
     console.log('> Modal Opening');

@@ -55,6 +55,18 @@ a:hover {
 
 .nav, .pagination, .panel-title a { cursor: pointer; }
 
+/* Development Only */
+.debug {
+  position:fixed;
+  left:10px;
+  bottom:10px;
+  cursor:pointer;
+}
+
+.debug.debugging {
+  color:#35A5AD;
+}
+
 /* ng-view */
 main {
   position:absolute;

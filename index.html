@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="css/app.css"/>
   </head>
 
-  <body>
+  <body ng-controller="pageCtrl">
     <header ng-include="'partials/header.html'"></header>
 
     <main ng-view></main>
 
     <!-- <footer ng-include="'partials/footer.html'"></footer> -->
+
+    <div class="debug" ng-class="{debugging: debug}" ng-click="toggleDebugging()">
+      <span class="glyphicon glyphicon-wrench"></span>
+    </div>
 
     <div id="fb-root"></div>
 
