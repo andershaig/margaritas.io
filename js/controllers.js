@@ -291,13 +291,14 @@ angular.module('marg.controllers', [])
 }])
 .controller('searchCtrl', ['$scope', function ($scope) {
   // Sort Options
-  $scope.sortOptions = [
-    {name:'Rating', field:'rating'},
-    {name:'Newest', field:'createdAt'},
-    {name:'None',   field:false}
-  ];
+  // $scope.sortOptions = [
+  //   {name:'Rating Desc', field:'rating'}
+  //   {name:'Rating Asc', field:'rating'},
+  //   {name:'Newest', field:'createdAt'},
+  //   {name:'None',   field:false}
+  // ];
 
-  $scope.sort = 'rating';
+  $scope.sort = '-rating';
 
   $scope.reverseSort = false;
 }])

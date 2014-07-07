@@ -28,16 +28,18 @@
                     <label for="sort">Sort by</label>
 
                     <select class="form-control" id="sort" ng-model="sort">
-                      <option value="rating">Rating</option>
-                      <option value="createdAt">Newest</option>
+                      <option value="-rating">Rating (Desc)</option>
+                      <option value="+rating">Rating (Asc)</option>
+                      <option value="-createdAt">Created At (Desc)</option>
+                      <option value="+createdAt">Created At (Asc)</option>
                     </select>
                     <!-- <select class="form-control" id="sort">
                       <option>Rating</option>
                       <option>Newest</option>
                     </select> -->
 
-                    <button class="btn btn-default" role="button" ng-click="reverseSort = false">Asc</button>
-                    <button class="btn btn-default" role="button" ng-click="reverseSort = true">Desc</button>
+                    <!-- <button class="btn btn-default" role="button" ng-click="reverseSort = false">Asc</button>
+                    <button class="btn btn-default" role="button" ng-click="reverseSort = true">Desc</button> -->
                   </div>
                 </form>
               </div>
