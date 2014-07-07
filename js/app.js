@@ -74,7 +74,15 @@ run(['$rootScope', '$location', '$q', 'MargUser', 'MargaritaCollection', 'Ingred
     success: function (collection) {
       console.log('> Margarita collection was loaded.');
 
+      // console.log(collection);
+
       $scope.$apply();
+
+      // $scope.margaritas.each( function (marg) {
+      //   console.log(marg);
+      //   delete marg.collection;
+      //   console.log(marg);
+      // });
 
       // collection.each( function (object) {
       //   console.log(object);

@@ -290,7 +290,16 @@ angular.module('marg.controllers', [])
 
 }])
 .controller('searchCtrl', ['$scope', function ($scope) {
+  // Sort Options
+  $scope.sortOptions = [
+    {name:'Rating', field:'rating'},
+    {name:'Newest', field:'createdAt'},
+    {name:'None',   field:false}
+  ];
 
+  $scope.sort = 'rating';
+
+  $scope.reverseSort = false;
 }])
 .controller('accountCtrl', ['$scope', function ($scope) {
 
