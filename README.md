@@ -18,6 +18,7 @@
 * ~~Build an interface for adding and editing instructions in the admin.~~
 * ~~Add loading indicator system~~
 * ~~Determine how to rework creation / editing so that it's truly one at a time. They should probably be different routes, the admin should only list the different margaritas / ingredients to edit. If the create / edit pages are separate, this allows them to become user facing in the future.~~
+* Currently you can add duplicate ingredients to a margarita
 * Look into (Parse) views as a way to filter a collection without messing with it too much
 * Move all code possible from the app start and into services
 * Build the proper relational database structure

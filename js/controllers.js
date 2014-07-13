@@ -291,6 +291,9 @@ angular.module('marg.controllers', [])
   //   {name:'None',   field:false}
   // ];
 
+  $scope.margs = [];
+  $scope.ingreds = [];
+
   // Keep marg list updated
   $scope.$watch('margaritas.models', function () {
     $scope.margs = $scope.margaritas.models;
@@ -335,20 +338,40 @@ angular.module('marg.controllers', [])
       $scope.filteredIngredients = [];
     }
 
-    if ($scope.ingreds) {
+    if ($scope.margs && $scope.ingreds) {
 
       $scope.filteredMargs.forEach( function (marg, i) {
         if (marg.ingredients) {
           marg.ingredients.forEach( function (ing, j) {
-            $scope.filteredIngredients.pushUnique(ing);
-            console.log($scope.filteredIngredients);
+            var globalIng = $scope.ingredients.get(ing.id);
+            if (globalIng) {
+              console.log(globalIng);
+              $scope.filteredIngredients.pushUnique(globalIng);
+              console.log($scope.filteredIngredients);
+            }
           });
         }
       });
 
-      $scope.ingreds.forEach( function (ingred, i) {
-        console.log('Ingredient ' + (i+1) + ': ' + ingred.name)
+      $scope.filteredIngredients.forEach( function (ingredient, i) {
+        ingredient.count = 0;
+
+        $scope.filteredMargs.forEach( function (marg, i) {
+          if (marg.ingredients) {
+            marg.ingredients.forEach( function (ing, j) {
+              if (ing.id === ingredient.id) {
+                ingredient.count++;
+              }
+            });
+          }
+        });
+
+        // console.log('Ingredient ' + (i+1) + ': ' + ingredient.name);
       });
+
+      // $scope.ingreds.forEach( function (ingred, i) {
+      //   console.log('Ingredient ' + (i+1) + ': ' + ingred.name)
+      // });
     } else {
       // $scope.filteredIngredients = $scope.ingreds;
     }

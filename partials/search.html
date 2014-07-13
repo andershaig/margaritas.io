@@ -6,7 +6,7 @@
         <div class="list-group">
           <span class="list-group-item">Filter by Ingredient</span>
           <a href="" class="list-group-item" ng-repeat="ingredient in filteredIngredients track by ingredient.id">
-            <span class="badge">{{$index + 10}}</span>
+            <span class="badge">{{ingredient.count}}</span>
             {{ingredient.name}}
           </a>
         </div>
