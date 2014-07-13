@@ -1,5 +1,14 @@
 'use strict';
 
+// Helpers
+Array.prototype.pushUnique = function (item) {
+  if (this.indexOf(item) == -1) {
+    this.push(item);
+    return true;
+  }
+  return false;
+}
+
 // Declare app level module which depends on filters, and services
 angular.module('marg', [
   'ngRoute',

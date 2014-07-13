@@ -116,14 +116,6 @@ angular.module('marg.controllers', [])
     console.log('Something went wrong when trying to modify the object, with error code: ' + error.description);
   }
 
-  Array.prototype.pushUnique = function (item) {
-    if (this.indexOf(item) == -1) {
-      this.push(item);
-      return true;
-    }
-    return false;
-  }
-
   $scope.marg = {};
   $scope.marg.ingredients = [];
   $scope.marg.instructions = [];
@@ -290,7 +282,7 @@ angular.module('marg.controllers', [])
   }
 
 }])
-.controller('searchCtrl', ['$scope', function ($scope) {
+.controller('searchCtrl', ['$scope', '$filter', function ($scope, $filter) {
   // Sort Options
   // $scope.sortOptions = [
   //   {name:'Rating Desc', field:'rating'}
@@ -299,9 +291,69 @@ angular.module('marg.controllers', [])
   //   {name:'None',   field:false}
   // ];
 
+  // Keep marg list updated
+  $scope.$watch('margaritas.models', function () {
+    $scope.margs = $scope.margaritas.models;
+    displayFilteredResults();
+  });
+
+  // Keep ingredient list update
+  $scope.$watch('ingredients.models', function () {
+    $scope.ingreds = $scope.ingredients.models;
+    displayFilteredResults();
+  });
+
   $scope.sort = '-rating';
 
   $scope.reverseSort = false;
+
+  // Watch searches
+  $scope.$watch('search', function (query) {
+    // console.log('> Search Watch');
+    displayFilteredResults();
+  }, true);
+
+  var displayFilteredResults = function () {
+    // console.log('> displayFilteredResults();');
+    var query = $scope.search;
+
+    if (query) {
+      $scope.filteredMargs = $filter('textSearch')($scope.margs, query);
+    } else {
+      $scope.filteredMargs = $scope.margs;
+    }
+
+    $scope.counted = $scope.filteredMargs.length;
+
+    displayIngredientCounts();
+  };
+
+  var displayIngredientCounts = function () {
+    if ($scope.filteredIngredients) {
+      $scope.filteredIngredients.length = 0;
+    } else {
+      $scope.filteredIngredients = [];
+    }
+
+    if ($scope.ingreds) {
+
+      $scope.filteredMargs.forEach( function (marg, i) {
+        if (marg.ingredients) {
+          marg.ingredients.forEach( function (ing, j) {
+            $scope.filteredIngredients.pushUnique(ing);
+            console.log($scope.filteredIngredients);
+          });
+        }
+      });
+
+      $scope.ingreds.forEach( function (ingred, i) {
+        console.log('Ingredient ' + (i+1) + ': ' + ingred.name)
+      });
+    } else {
+      // $scope.filteredIngredients = $scope.ingreds;
+    }
+
+  };
 }])
 .controller('accountCtrl', ['$scope', function ($scope) {
 
