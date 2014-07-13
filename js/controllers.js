@@ -174,7 +174,8 @@ angular.module('marg.controllers', [])
 
   $scope.addIngredient = function (ingredient) {
     var ingredientEntry = {
-      pointer: ingredient,
+      id: ingredient.id,
+      name: ingredient.name,
       amount: null,
       unit: null
     }
