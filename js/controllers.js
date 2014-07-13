@@ -317,7 +317,6 @@ angular.module('marg.controllers', [])
   }, true);
 
   var displayFilteredResults = function () {
-    // console.log('> displayFilteredResults();');
     var query = $scope.search;
 
     if (query) {
@@ -345,9 +344,9 @@ angular.module('marg.controllers', [])
           marg.ingredients.forEach( function (ing, j) {
             var globalIng = $scope.ingredients.get(ing.id);
             if (globalIng) {
-              console.log(globalIng);
+              // console.log(globalIng);
               $scope.filteredIngredients.pushUnique(globalIng);
-              console.log($scope.filteredIngredients);
+              // console.log($scope.filteredIngredients);
             }
           });
         }
@@ -365,17 +364,8 @@ angular.module('marg.controllers', [])
             });
           }
         });
-
-        // console.log('Ingredient ' + (i+1) + ': ' + ingredient.name);
       });
-
-      // $scope.ingreds.forEach( function (ingred, i) {
-      //   console.log('Ingredient ' + (i+1) + ': ' + ingred.name)
-      // });
-    } else {
-      // $scope.filteredIngredients = $scope.ingreds;
     }
-
   };
 }])
 .controller('accountCtrl', ['$scope', function ($scope) {
